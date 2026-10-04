@@ -140,7 +140,7 @@
             <tr>
                 <td class="bold-cell text-center">1.1</td>
                 <td class="bold-cell">Price (Premium)</td>
-                <td>A flat payment of HK$100. This is paid once when you sign up for your tutorial class.</td>
+                <td>A flat payment of HK$100. This is paid once when you sign up </td>
             </tr>
             <tr>
                 <td class="bold-cell text-center">1.2</td>
