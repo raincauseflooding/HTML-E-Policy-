@@ -263,10 +263,10 @@
     <table class="signature-block">
         <tr>
             <td>
-                <div class="signature-line">Authorized Signatory (Insurer)</div>
+                <div class="signature-line">Authorized Signatory (your name)</div>
             </td>
             <td>
-                <div class="signature-line">Authorized Signatory (Policyholder / Tutorial Center)</div>
+                <div class="signature-line">Authorized Signatory (your school)</div>
             </td>
         </tr>
     </table>
