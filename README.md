@@ -272,6 +272,16 @@
             </td>
         </tr>
     </table>
+<!-- ================================================================= -->
+    <!-- STUDENT APPLICATION CALL TO ACTION BUTTON                         -->
+    <!-- ================================================================= -->
+    <div style="margin-top: 40px; margin-bottom: 20px; text-align: center;">
+        <!-- REPLACE THE URL IN href="" BELOW WITH YOUR ACTUAL GOOGLE FORM LINK -->
+        <a href="https://forms.gle/CXfwnKDcFLeRn2SN9" target="_blank" style="display: inline-block; width: 100%; background-color: #000000; color: #ffffff; text-decoration: none; padding: 15px 0; font-family: 'Times New Roman', serif; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #000000; text-align: center; box-sizing: border-box;">
+            Click Here to Fill Out the Student Application Form
+        </a>
+    </div>
+    <!-- ================================================================= -->
 
     <footer>
         <p>This is a formal electronic contract document. Any alteration to the text or frame layout renders this policy void.</p>
