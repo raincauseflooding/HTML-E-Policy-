@@ -122,7 +122,7 @@
 
 <div class="policy-container">
 
-    <h1>HKDSE Exam Protection Plan</h1>
+    <h1>Ed-Surance</h1>
     <div class="policy-subtitle">Group Master Micro-Insurance Policy Contract</div>
 
     <p>This insrance policy is a legal agreement between our company and the insurance provider. Acting on behalf of the registered candidates enrolled in their certified academic courses.</p>
