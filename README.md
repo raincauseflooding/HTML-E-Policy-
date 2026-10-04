@@ -126,7 +126,7 @@
     <h1>HKDSE Exam Protection Plan</h1>
     <div class="policy-subtitle">Group Master Micro-Insurance Policy Contract</div>
 
-    <p>This document is a simple, formal agreement between the Insurance Company (the Insurer) and the Tutorial Center (the Policyholder). It is designed to protect students from losing money if they miss their HKDSE exams due to an unexpected emergency.</p>
+    <p>This insrance policy is a legal agreement between our company and the insurance provider. Acting on behalf of the registered candidates enrolled in their certified academic courses.</p>
 
     <h2>1. General Rules & Who Can Join</h2>
     <table>
@@ -172,22 +172,22 @@
         </thead>
         <tbody>
             <tr>
-                <td class="bold-cell">🏥 Medical Emergency</td>
+                <td class="bold-cell"> Medical Emergency</td>
                 <td>You are too sick to attend your exam, or you are hospitalized on the exam day.</td>
                 <td>An official document or note from a registered Hong Kong hospital dated on your exam day.</td>
             </tr>
             <tr>
-                <td class="bold-cell">🚇 Public Transit Delay</td>
+                <td class="bold-cell"> Public Transit Delay</td>
                 <td>The MTR or other public transport is delayed for more than 45 minutes on the morning of your exam.</td>
                 <td>An official delay slip or notice from the MTR or the Transport Department.</td>
             </tr>
             <tr>
-                <td class="bold-cell">🚗 Car Accident</td>
+                <td class="bold-cell"> Car Accident</td>
                 <td>You are involved in a traffic accident while traveling to your exam.</td>
                 <td>An official traffic accident report from the Hong Kong Police.</td>
             </tr>
             <tr>
-                <td class="bold-cell">🤍 Family Loss</td>
+                <td class="bold-cell"> Family Loss</td>
                 <td>You miss the exam because an immediate family member passes away.</td>
                 <td>A copy of the death certificate of your parent, sibling, or guardian.</td>
             </tr>
