@@ -133,7 +133,7 @@
             <tr>
                 <th>Clause Ref</th>
                 <th>Rule Name</th>
-                <th>Rule Details (In Simple English)</th>
+                <th>Rule Details </th>
             </tr>
         </thead>
         <tbody>
@@ -199,7 +199,7 @@
             <tr>
                 <th>Exclusion Code</th>
                 <th>Situation</th>
-                <th>Terms of Nullification (When we do NOT pay)</th>
+                <th>When we do NOT pay</th>
             </tr>
         </thead>
         <tbody>
