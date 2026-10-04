@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HKDSE Exam Protection Plan - Master Policy Contract</title>
+    <title>Ed-Surance</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif, -apple-system, sans-serif;
