@@ -59,7 +59,7 @@
             height: 100%;
             width: 25%;
             background-color: #000000;
-            transition: width 0.25s ease-out;
+            transition: width 0.2s ease-out;
         }
 
         .survey-card {
@@ -275,18 +275,6 @@
                 flex-direction: column;
             }
         }
-
-        @media print {
-            .brand-header, .progress-track, #policySurvey, .cert-actions {
-                display: none !important;
-            }
-            .policy-output {
-                display: block !important;
-                border: none !important;
-                box-shadow: none !important;
-                padding: 0 !important;
-            }
-        }
     </style>
 </head>
 <body>
@@ -305,138 +293,4 @@
             <!-- STEP 1 -->
             <div class="survey-card active" id="step1">
                 <div class="step-label">Step 1 of 4</div>
-                <h2>1. Welcome to Ed-surance</h2>
-                <p>We protect students from unexpected exam issues. Check the box below to start.</p>
-                
-                <label class="touch-option">
-                    <input type="checkbox" id="chk1" onchange="autoAdvance(1)">
-                    <span class="touch-text">
-                        <span class="touch-title">I want to read the rules</span>
-                        <span class="touch-subtitle">Tap here to go to the next step.</span>
-                    </span>
-                </label>
-            </div>
-
-            <!-- STEP 2 -->
-            <div class="survey-card" id="step2">
-                <div class="step-label">Step 2 of 4</div>
-                <h2>2. When we cannot pay</h2>
-                <p>To keep this plan fair and cheap for everyone, we cannot pay claims if:</p>
-                
-                <div class="rule-list">
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>Your mock exam result is below Level 2.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You miss too many school days or tutor classes.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You score Level 5 or higher in the real exam.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You do not give us clear, official proof.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You break official exam rules (like cheating).</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You skip exams just because you feel unprepared.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You are late but have no official transport delays.</span></div>
-                </div>
-
-                <label class="touch-option">
-                    <input type="checkbox" id="chk2" onchange="autoAdvance(2)">
-                    <span class="touch-text">
-                        <span class="touch-title">I understand these rules</span>
-                        <span class="touch-subtitle">Tap here to choose your plan.</span>
-                    </span>
-                </label>
-            </div>
-
-            <!-- STEP 3 -->
-            <div class="survey-card" id="step3">
-                <div class="step-label">Step 3 of 4</div>
-                <h2>3. Choose Your Plan</h2>
-                <p>Pick the best level of protection for your needs:</p>
-                
-                <label class="touch-option">
-                    <input type="radio" name="planChoice" value="Basic" onclick="autoAdvance(3)">
-                    <span class="touch-text">
-                        <span class="touch-title">Basic Plan — \$65</span>
-                        <span class="touch-subtitle">Covers Exam Fees (Max payout: \$3,000)</span>
-                    </span>
-                </label>
-
-                <label class="touch-option">
-                    <input type="radio" name="planChoice" value="Premium" onclick="autoAdvance(3)">
-                    <span class="touch-text">
-                        <span class="touch-title">Premium Plan — \$210</span>
-                        <span class="touch-subtitle">Covers Exam & Tuition Fees (Max payout: \$10,000)</span>
-                    </span>
-                </label>
-            </div>
-
-            <!-- STEP 4 -->
-            <div class="survey-card" id="step4">
-                <div class="step-label">Step 4 of 4</div>
-                <h2>4. Get Your Document</h2>
-                <p>We do not collect any personal data or email addresses. Click below to show your policy.</p>
-                
-                <label class="touch-option">
-                    <input type="checkbox" id="chk4" onchange="autoAdvance(4)">
-                    <span class="touch-text">
-                        <span class="touch-title">Create my E-Policy Contract</span>
-                        <span class="touch-subtitle">Builds the certificate instantly on your screen.</span>
-                    </span>
-                </label>
-            </div>
-
-            <div class="button-bar">
-                <button type="button" id="btnBack" onclick="stepChange(-1)" disabled>Go Back</button>
-            </div>
-        </form>
-
-        <section id="policyDisplay" class="policy-output">
-            <header class="cert-header">
-                <h1 class="cert-title">Ed-surance Policy</h1>
-                <p>HKDSE Protection Agreement</p>
-            </header>
-
-            <table class="meta-table">
-                <tr>
-                    <td>
-                        <span class="meta-label">Your Plan</span>
-                        <strong id="outPlan">-</strong>
-                    </td>
-                    <td>
-                        <span class="meta-label">Cost</span>
-                        <strong id="outFee">-</strong>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="meta-label">Max Claim Limit</span>
-                        <strong id="outCap">-</strong>
-                    </td>
-                    <td>
-                        <span class="meta-label">Active Since</span>
-                        <span id="outDate">-</span>
-                    </td>
-                </tr>
-            </table>
-
-            <div class="cert-clause">
-                <h3>1. What we cover</h3>
-                <p id="outDesc">-</p>
-            </div>
-
-            <div class="cert-clause">
-                <h3>2. Policy Rules (No Pay Cases)</h3>
-                <ul>
-                    <li>Mock results below Level 2.</li>
-                    <li>Low attendance in classes or tutoring.</li>
-                    <li>Scoring Level 5 or higher in the real exam.</li>
-                    <li>Failing to provide official proof documents.</li>
-                    <li>Breaking official exam rules.</li>
-                    <li>Skipping exams without a valid emergency.</li>
-                    <li>Lateness without official transit logs.</li>
-                </ul>
-            </div>
-
-            <div class="cert-clause">
-                <h3>3. Safe & Private</h3>
-                <p>This contract is generated on your own phone or computer. No personal details are saved online.</p>
-            </div>
-
-            <div class="cert-actions">
-                <button type="button" class="btn-action" onclick="window.print()">Print / Save PDF</button>
-                <button type="button" onclick="restartSurvey()">Start Over</butto
+                <h2>1. We
