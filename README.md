@@ -533,4 +533,139 @@
 
                         <!-- Humanities & Social Sciences -->
                         <div class="subject-category-title">Humanities & Social Sciences</div>
-                        <div class="subjec
+                        <div class="subject-grid">
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese History" onchange="autoAdvanceStep4()"> Chinese History</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="History" onchange="autoAdvanceStep4()"> History</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Economics" onchange="autoAdvanceStep4()"> Economics</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Geography" onchange="autoAdvanceStep4()"> Geography</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Tourism & Hospitality Studies" onchange="autoAdvanceStep4()"> Tourism & Hospitality</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Ethics & Religious Studies" onchange="autoAdvanceStep4()"> Ethics & Religious Studies</label>
+                        </div>
+
+                        <!-- Business & Technology -->
+                        <div class="subject-category-title">Business & Technology</div>
+                        <div class="subject-grid">
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="BAFS" onchange="autoAdvanceStep4()"> BAFS</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="ICT" onchange="autoAdvanceStep4()"> ICT</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Design & Applied Technology" onchange="autoAdvanceStep4()"> Design & Applied Tech.</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Technology & Living" onchange="autoAdvanceStep4()"> Technology & Living</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Health Management & Social Care" onchange="autoAdvanceStep4()"> Health Management & SC</label>
+                        </div>
+
+                        <!-- Arts, PE & Languages -->
+                        <div class="subject-category-title">Arts, PE & Literature</div>
+                        <div class="subject-grid">
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Visual Arts" onchange="autoAdvanceStep4()"> Visual Arts</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Music" onchange="autoAdvanceStep4()"> Music</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physical Education" onchange="autoAdvanceStep4()"> Physical Education</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese Literature" onchange="autoAdvanceStep4()"> Chinese Literature</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Literature in English" onchange="autoAdvanceStep4()"> Literature in English</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="generator-container">
+                    <label style="font-weight: bold; font-size: 0.9rem;">DSE Candidate Number</label>
+                    <div class="candidate-num-display" id="candidateNumBox">---------</div>
+                    <button type="button" class="btn-action" onclick="generateDseNumber()">Write my number</button>
+                </div>
+            </div>
+
+            <!-- STEP 5: Render Contract Trigger -->
+            <div class="survey-card" id="step5">
+                <div class="step-label">Step 5 of 5</div>
+                <h2>5. Generate Document</h2>
+                <p>We do not collect any personal data or email addresses. Tap below to build your agreement immediately.</p>
+                
+                <label class="touch-option">
+                    <input type="checkbox" id="chk5" onchange="instantAdvance(5)">
+                    <span class="touch-text">
+                        <span class="touch-title">Create my E-Policy Contract</span>
+                        <span class="touch-subtitle">Builds the certificate instantly on your screen.</span>
+                    </span>
+                </label>
+            </div>
+        </form>
+
+        <!-- THE GENERATED LOCAL E-POLICY -->
+        <section id="policyDisplay" class="policy-output">
+            <header class="cert-header">
+                <h1 class="cert-title">Ed-surance Policy</h1>
+                <p>Private Candidate Protection Agreement</p>
+            </header>
+
+            <table class="meta-table">
+                <tr>
+                    <td>
+                        <span class="meta-label">Selected Tier</span>
+                        <strong id="outPlan">-</strong>
+                    </td>
+                    <td>
+                        <span class="meta-label">Premium Charged</span>
+                        <strong id="outFee">-</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-label">Max Claim Ceiling</span>
+                        <strong id="outCap">-</strong>
+                    </td>
+                    <td>
+                        <span class="meta-label">Candidate Number</span>
+                        <strong id="outCandNum" style="font-family: monospace; letter-spacing: 0.05em;">-</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-label">DSE Exam Year</span>
+                        <strong id="outYear">-</strong>
+                    </td>
+                    <td>
+                        <span class="meta-label">Covered Subjects</span>
+                        <strong id="outSubjects">-</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <span class="meta-label">Active Since</span>
+                        <span id="outDate">-</span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="cert-clause">
+                <h3>1. Covered Benefit Details</h3>
+                <p id="outDesc">-</p>
+            </div>
+
+            <div class="cert-clause">
+                <h3>2. Binding Exclusion Rules</h3>
+                <ul>
+                    <li>Mock results below Level 2 forfeit claims.</li>
+                    <li>Low attendance records cancel plan eligibility.</li>
+                    <li>Achieving Level 5 or higher places performance outside claim bounds.</li>
+                    <li>Missing official proof or hospital documentation voids claims.</li>
+                    <li>Direct violation of HKEAA exam rules invalidates coverage.</li>
+                    <li>Voluntary absence without verifiable medical records is excluded.</li>
+                    <li>Lateness without official transit delay logs is ineligible.</li>
+                </ul>
+            </div>
+
+            <div class="cert-clause">
+                <h3>3. Privacy & Device Issuance</h3>
+                <p>This policy contract was generated strictly in your client runtime. No personal records, names, or emails have been uploaded or retained on external servers.</p>
+            </div>
+
+            <div class="cert-actions">
+                <button type="button" class="btn-action" onclick="restartSurvey()">Start Over</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let step = 1;
+        const total = 5;
+        let generatedCandNum = "";
+
+        function refreshProgress() {
+            document.getElementById('progressFill').style.width 
