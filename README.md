@@ -1,10 +1,11 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Ed-surance - Private Candidate Exam Protection</title>
     <style>
+        /* Base Wildcard Reset */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -501,7 +502,7 @@
                 
                 <div class="input-group">
                     <label for="examYear">Select Exam Year</label>
-                    <select id="examYear">
+                    <select id="examYear" onchange="autoAdvanceStep4()">
                         <option value="">-- Choose Year --</option>
                         <option value="2027">2027</option>
                         <option value="2028">2028</option>
@@ -514,56 +515,22 @@
                         <!-- Core Subjects -->
                         <div class="subject-category-title">Core Subjects</div>
                         <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese Language"> Chinese Language</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="English Language"> English Language</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics (Compulsory)"> Mathematics (Compulsory)</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Citizenship & Social Development"> Citizenship & Social Dev.</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M1)"> Math Extended (M1)</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M2)"> Math Extended (M2)</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese Language" onchange="autoAdvanceStep4()"> Chinese Language</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="English Language" onchange="autoAdvanceStep4()"> English Language</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics (Compulsory)" onchange="autoAdvanceStep4()"> Mathematics (Compulsory)</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Citizenship & Social Development" onchange="autoAdvanceStep4()"> Citizenship & Social Dev.</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M1)" onchange="autoAdvanceStep4()"> Math Extended (M1)</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M2)" onchange="autoAdvanceStep4()"> Math Extended (M2)</label>
                         </div>
 
                         <!-- Sciences -->
                         <div class="subject-category-title">Sciences</div>
                         <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Biology"> Biology</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chemistry"> Chemistry</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physics"> Physics</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Biology" onchange="autoAdvanceStep4()"> Biology</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chemistry" onchange="autoAdvanceStep4()"> Chemistry</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physics" onchange="autoAdvanceStep4()"> Physics</label>
                         </div>
 
                         <!-- Humanities & Social Sciences -->
                         <div class="subject-category-title">Humanities & Social Sciences</div>
-                        <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese History"> Chinese History</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="History"> History</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Economics"> Economics</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Geography"> Geography</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Tourism & Hospitality Studies"> Tourism & Hospitality</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Ethics & Religious Studies"> Ethics & Religious Studies</label>
-                        </div>
-
-                        <!-- Business & Technology -->
-                        <div class="subject-category-title">Business & Technology</div>
-                        <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="BAFS"> BAFS</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="ICT"> ICT</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Design & Applied Technology"> Design & Applied Tech.</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Technology & Living"> Technology & Living</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Health Management & Social Care"> Health Management & SC</label>
-                        </div>
-
-                        <!-- Arts, PE & Languages -->
-                        <div class="subject-category-title">Arts, PE & Literature</div>
-                        <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Visual Arts"> Visual Arts</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Music"> Music</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physical Education"> Physical Education</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese Literature"> Chinese Literature</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Literature in English"> Literature in English</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="generator-container">
-                    <label style="font-weight: bold; font-size: 0.9rem;">DSE Candidate Number</label>
-                    <div class="candidate-num-display" id="candidateNumBox">---------</div>
-                    <button type="button" class="btn-acti
+                        <div class="subjec
