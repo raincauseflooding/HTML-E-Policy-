@@ -1,9 +1,9 @@
-# HTML-E-Policy-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ed-Surance</title>
+    <title>HKDSE Exam Protection Plan - Day School Policy</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif, -apple-system, sans-serif;
@@ -22,7 +22,6 @@
             box-shadow: none;
         }
 
-        /* Standard Contract Typography */
         h1 {
             font-size: 1.8rem;
             text-align: center;
@@ -57,7 +56,6 @@
             text-align: justify;
         }
 
-        /* Black Frame Tables */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -87,7 +85,6 @@
             text-align: center;
         }
 
-        /* Legal Sign-Off Blocks */
         .signature-block {
             margin-top: 50px;
             width: 100%;
@@ -122,40 +119,50 @@
 
 <div class="policy-container">
 
-    <h1>Ed-Surance</h1>
-    <div class="policy-subtitle">Group Master Micro-Insurance Policy Contract</div>
+    <h1>HKDSE Exam Protection Plan</h1>
+    <div class="policy-subtitle">Policy 1: Day School Candidate Shield</div>
 
-    <p>This insrance policy is a legal agreement between our company and the insurance provider. Acting on behalf of the registered candidates enrolled in their certified academic courses.</p>
+    <p>This document is a formal agreement between the Insurance Company (the Insurer) and the Tutorial Center (the Policyholder). It protects registered <strong>Day School Candidates</strong> from losing money if they miss their HKDSE exams due to an unexpected emergency.</p>
 
-    <h2>1. General Rules & Who Can Join</h2>
+    <h2>1. General Rules & Pricing (Tier 1)</h2>
     <table>
         <thead>
             <tr>
                 <th>Clause Ref</th>
                 <th>Rule Name</th>
-                <th>Rule Details </th>
+                <th>Contractual Details (Simple English)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td class="bold-cell text-center">1.1</td>
-                <td class="bold-cell">Price (Premium)</td>
-                <td>A flat payment of HK$100. This is paid once when you sign up </td>
+                <td class="bold-cell">Gross Premium</td>
+                <td class="bold-cell">HK$ 65.00 flat fee per candidate.</td>
             </tr>
             <tr>
                 <td class="bold-cell text-center">1.2</td>
-                <td class="bold-cell">Maximum Payout</td>
-                <td>Up to HK$3,000 per student. This money is used to pay for your exam retake fees and study help next year.</td>
+                <td class="bold-cell">Pure Premium (40%)</td>
+                <td>HK$ 26.00 (Reserved strictly to pay student claims).</td>
             </tr>
             <tr>
                 <td class="bold-cell text-center">1.3</td>
-                <td class="bold-cell">Student Status</td>
-                <td>You must be an active student with at least 70% to 80% class attendance at the tutorial center.</td>
+                <td class="bold-cell">Expense Loading (15%)</td>
+                <td>HK$ 9.75 (Used for platform admin and verifying documents).</td>
             </tr>
             <tr>
                 <td class="bold-cell text-center">1.4</td>
-                <td class="bold-cell">Sign-Up Deadline</td>
-                <td>You must sign up and pay at least 14 days before your first exam paper starts. You cannot sign up after you are already sick or late.</td>
+                <td class="bold-cell">Partner Commission (15%)</td>
+                <td>HK$ 9.75 (Paid directly to your partner tutorial center).</td>
+            </tr>
+            <tr>
+                <td class="bold-cell text-center">1.5</td>
+                <td class="bold-cell">Risk & RBC Buffer (30%)</td>
+                <td>HK$ 19.50 (Kept as safety capital to meet Hong Kong Insurance Authority RBC guidelines).</td>
+            </tr>
+            <tr>
+                <td class="bold-cell text-center">1.6</td>
+                <td class="bold-cell">Maximum Payout</td>
+                <td class="bold-cell">Up to HK$ 3,000.00 (Covers next year's HKEAA retake entries and study help).</td>
             </tr>
         </tbody>
     </table>
@@ -171,52 +178,73 @@
         </thead>
         <tbody>
             <tr>
-                <td class="bold-cell"> Medical Emergency</td>
+                <td class="bold-cell">🏥 Medical Emergency</td>
                 <td>You are too sick to attend your exam, or you are hospitalized on the exam day.</td>
                 <td>An official document or note from a registered Hong Kong hospital dated on your exam day.</td>
             </tr>
             <tr>
-                <td class="bold-cell"> Public Transit Delay</td>
-                <td>The MTR or other public transport is delayed for more than 45 minutes on the morning of your exam.</td>
-                <td>An official delay slip or notice from the MTR or the Transport Department.</td>
+                <td class="bold-cell">🚇 Public Transit Delay</td>
+                <td>The MTR or other public transport is delayed on the morning of your exam.</td>
+                <td>An official delay slip or notice from the MTR or the Transport Department (delay must exceed 45 minutes).</td>
             </tr>
             <tr>
-                <td class="bold-cell"> Car Accident</td>
+                <td class="bold-cell">🚗 Car Accident</td>
                 <td>You are involved in a traffic accident while traveling to your exam.</td>
                 <td>An official traffic accident report from the Hong Kong Police.</td>
             </tr>
             <tr>
-                <td class="bold-cell"> Family Loss</td>
+                <td class="bold-cell">🤍 Family Loss</td>
                 <td>You miss the exam because an immediate family member passes away.</td>
                 <td>A copy of the death certificate of your parent, sibling, or guardian.</td>
             </tr>
         </tbody>
     </table>
 
-    <h2>3. Exclusions & Limitations</h2>
+    <h2>3. Explicit Exclusions (Those We Do Not Insure)</h2>
+    <p>To keep premiums low and prevent cheating, the Insurer will strictly <strong>NOT</strong> pay claims for any of the following 7 conditions:</p>
     <table>
         <thead>
             <tr>
-                <th>Exclusion Code</th>
-                <th>Situation</th>
-                <th>When we do NOT pay</th>
+                <th>Ref Code</th>
+                <th>Exclusion Parameter</th>
+                <th>Exclusion Condition & Boundary Rationale</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td class="bold-cell text-center">EX-3.1</td>
-                <td class="bold-cell">Personal Reasons</td>
-                <td>We do not pay if you miss the exam because you overslept, got the time wrong, or decided not to go.</td>
+                <td class="bold-cell">Poor Mock Exam Results</td>
+                <td>Students who scored under Level 2 in mock exams. Level 2 is the minimum requirement for higher education; students scoring below this show poor baseline academic prospects.</td>
             </tr>
             <tr>
                 <td class="bold-cell text-center">EX-3.2</td>
-                <td class="bold-cell">Unreported Delays</td>
-                <td>We do not pay for normal road traffic. You must provide official delay logs from the transport company.</td>
+                <td class="bold-cell">Poor Attendance</td>
+                <td>Students with poor attendance records in tutorial classes or regular school days. This ensures candidates are actively preparing for their exams.</td>
             </tr>
             <tr>
                 <td class="bold-cell text-center">EX-3.3</td>
-                <td class="bold-cell">Rules Broken</td>
-                <td>We do not pay if the HKEAA disqualifies you or cancels your grade because of cheating.</td>
+                <td class="bold-cell">High-Achieving Students</td>
+                <td>Students who score higher than Level 5 in their actual HKDSE exams. These candidates are in the top 5% and suffer no financial or academic injury.</td>
+            </tr>
+            <tr>
+                <td class="bold-cell text-center">EX-3.4</td>
+                <td class="bold-cell">Missing Documentation</td>
+                <td>Students who fail to provide valid, official proof or documents to verify their claim.</td>
+            </tr>
+            <tr>
+                <td class="bold-cell text-center">EX-3.5</td>
+                <td class="bold-cell">Examination Misconduct</td>
+                <td>Students who violate HKEAA exam rules or are disqualified due to misconduct (such as cheating).</td>
+            </tr>
+            <tr>
+                <td class="bold-cell text-center">EX-3.6</td>
+                <td class="bold-cell">Unexcused Absence</td>
+                <td>Students who did not attend the exam without a valid physical or emergency reason (excluding "feeling unprepared").</td>
+            </tr>
+            <tr>
+                <td class="bold-cell text-center">EX-3.7</td>
+                <td class="bold-cell">Late Arrival Without Log</td>
+                <td>Students who arrive late but cannot provide an official, third-party service disruption log or delay certificate.</td>
             </tr>
         </tbody>
     </table>
@@ -259,33 +287,27 @@
         </tbody>
     </table>
 
-    <!-- Legal Signing Section -->
     <table class="signature-block">
         <tr>
             <td>
-                <div class="signature-line">Authorized Signatory 
-                (your name)</div>
+                <div class="signature-line">Authorized Signatory (Insurer)</div>
             </td>
             <td>
-                <div class="signature-line">Authorized Signatory
-                (your school)</div>
+                <div class="signature-line">Authorized Signatory (Tutorial Center Partner)</div>
             </td>
         </tr>
     </table>
-<!-- ================================================================= -->
-    <!-- STUDENT APPLICATION CALL TO ACTION BUTTON                         -->
-    <!-- ================================================================= -->
+
+    <!-- GOOGLE FORM BUTTON -->
     <div style="margin-top: 40px; margin-bottom: 20px; text-align: center;">
-        <!-- REPLACE THE URL IN href="" BELOW WITH YOUR ACTUAL GOOGLE FORM LINK -->
-        <a href="https://forms.gle/CXfwnKDcFLeRn2SN9" target="_blank" style="display: inline-block; width: 100%; background-color: #000000; color: #ffffff; text-decoration: none; padding: 15px 0; font-family: 'Times New Roman', serif; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #000000; text-align: center; box-sizing: border-box;">
-            Click Here to Fill Out the Student Application Form
+        <a href="YOUR_TIER1_GOOGLE_FORM_LINK_HERE" target="_blank" style="display: inline-block; width: 100%; background-color: #000000; color: #ffffff; text-decoration: none; padding: 15px 0; font-family: 'Times New Roman', serif; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #000000; text-align: center; box-sizing: border-box;">
+            Click Here to Fill Out the Day School Application Form
         </a>
     </div>
-    <!-- ================================================================= -->
 
     <footer>
         <p>This is a formal electronic contract document. Any alteration to the text or frame layout renders this policy void.</p>
-        <p>Document Ref: DSE-PP-2026-V1.0-SIMPLE &mdash; Certified for GitHub Repository hosting.</p>
+        <p>Document Ref: DSE-POLICY-T1-SCHOOL &mdash; Certified for GitHub Repository hosting.</p>
     </footer>
 
 </div>
