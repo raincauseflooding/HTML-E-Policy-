@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HKDSE Exam Protection Plan - Interactive Policy Survey</title>
+    <title>Ed-surance - Interactive Policy Survey</title>
     <style>
         /* Reset & High-Contrast Base Styling */
         * {
@@ -25,6 +25,29 @@
             max-width: 700px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
+        }
+
+        /* Brand Header */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px double #000000;
+            padding-bottom: 1.5rem;
+        }
+
+        .brand-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+
+        .brand-tagline {
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            color: #555555;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
         }
 
         /* Progress Bar */
@@ -80,33 +103,51 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Interactive Elements */
-        .consent-option {
+        /* Interactive Elements / Plan Tiers */
+        .tier-selection {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
             margin: 1.5rem 0;
-            padding: 1rem;
-            border: 1px solid #000000;
+        }
+
+        .option-box {
+            display: flex;
+            align-items: flex-start;
+            padding: 1.2rem;
+            border: 2px solid #000000;
             cursor: pointer;
             transition: background 0.2s;
         }
 
-        .consent-option:hover {
+        .option-box:hover {
             background-color: #f5f5f5;
         }
 
-        .consent-option input {
+        .option-box input[type="radio"], 
+        .option-box input[type="checkbox"] {
             width: 20px;
             height: 20px;
             margin-right: 1rem;
+            margin-top: 0.2rem;
             accent-color: #000000;
             cursor: pointer;
         }
 
-        .consent-label {
+        .option-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-title {
             font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .option-desc {
+            font-size: 0.95rem;
+            color: #444444;
+            margin-top: 0.2rem;
         }
 
         /* Form Inputs (Final Step) */
@@ -132,7 +173,7 @@
         /* Navigation Buttons */
         .button-group {
             display: flex;
-            justify-content: space-between;
+            justify-space-between: space-between;
             gap: 1rem;
         }
 
@@ -168,7 +209,7 @@
         }
 
         /* Accessibility Focus State */
-        button:focus, input:focus, .consent-option:focus-within {
+        button:focus, input:focus, .option-box:focus-within {
             outline: 3px solid #000000;
             outline-offset: 2px;
         }
@@ -177,6 +218,12 @@
 <body>
 
     <div class="survey-container">
+        <!-- Brand Identity Section -->
+        <header class="brand-header">
+            <div class="brand-logo">Ed-surance</div>
+            <div class="brand-tagline">HKDSE Exam Protection Plan</div>
+        </header>
+
         <!-- Visual Progress Tracker -->
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
@@ -187,130 +234,60 @@
             <!-- STEP 1: Purpose -->
             <div class="survey-card active" id="step1">
                 <p class="step-indicator">Step 1 of 4</p>
-                <h2>1. Purpose & Scope</h2>
-                <p>The HKDSE Exam Protection Plan offers safety nets and formal eligibility clauses for registered candidates. By entering this walkthrough, you begin the process of reviewing security guidelines and protection parameters.</p>
-                <div class="consent-option">
+                <h2>1. Welcome to Ed-surance</h2>
+                <p>We are here to protect HKDSE students during their exam season. This plan helps support you if unexpected events happen. Please read these short pages carefully to register.</p>
+                
+                <div class="option-box">
                     <input type="checkbox" id="consent1" onchange="validateStep(1)">
-                    <label for="consent1" class="consent-label">I understand the purpose of this protection plan.</label>
+                    <div class="option-details">
+                        <label for="consent1" class="option-title">I understand the plan's purpose</label>
+                        <span class="option-desc">Please check this box to show you understand.</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- STEP 2: Candidate Responsibilities -->
+            <!-- STEP 2: Candidate Obligations -->
             <div class="survey-card" id="step2">
                 <p class="step-indicator">Step 2 of 4</p>
-                <h2>2. Candidate Obligations</h2>
-                <p>All candidates must strictly adhere to the academic integrity protocols outlined by official examinations. Misrepresentation of identity or fraudulent claims immediately voids your eligibility for any protection benefits.</p>
-                <div class="consent-option">
+                <h2>2. Rules & Honesty</h2>
+                <p>To enjoy our protection, you must follow all official exam rules. If a student cheats or gives false information, their Ed-surance policy will be cancelled immediately.</p>
+                
+                <div class="option-box">
                     <input type="checkbox" id="consent2" onchange="validateStep(2)">
-                    <label for="consent2" class="consent-label">I agree to maintain academic integrity and honesty.</label>
+                    <div class="option-details">
+                        <label for="consent2" class="option-title">I agree to be honest</label>
+                        <span class="option-desc">Please check this box to agree to the rules.</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- STEP 3: Protection Limits -->
+            <!-- STEP 3: Plan Selection -->
             <div class="survey-card" id="step3">
                 <p class="step-indicator">Step 3 of 4</p>
-                <h2>3. Coverage Limits</h2>
-                <p>This plan acts as an administrative buffer and support network. It does not replace officially mandated HKEAA rules, nor does it guarantee academic grading changes. Claims must be submitted within 48 hours of your scheduled exam.</p>
-                <div class="consent-option">
-                    <input type="checkbox" id="consent3" onchange="validateStep(3)">
-                    <label for="consent3" class="consent-label">I acknowledge the coverage limitations and timelines.</label>
+                <h2>3. Choose Your Plan</h2>
+                <p>We offer two simple options to fit your needs. Please select the plan you would like to apply for:</p>
+                
+                <div class="tier-selection">
+                    <!-- Option A -->
+                    <label class="option-box">
+                        <input type="radio" name="planSelection" value="Basic (\$65)" onclick="validateStep(3)">
+                        <div class="option-details">
+                            <span class="option-title">Basic Protection — \$65</span>
+                            <span class="option-desc">Our essential coverage plan for students on a budget.</span>
+                        </div>
+                    </label>
+
+                    <!-- Option B -->
+                    <label class="option-box">
+                        <input type="radio" name="planSelection" value="Premium (\$210)" onclick="validateStep(3)">
+                        <div class="option-details">
+                            <span class="option-title">Premium Protection — \$210</span>
+                            <span class="option-desc">Our complete coverage plan with higher support benefits.</span>
+                        </div>
+                    </label>
                 </div>
             </div>
 
             <!-- STEP 4: Submit Details -->
             <div class="survey-card" id="step4">
-                <p class="step-indicator">Step 4 of 4</p>
-                <h2>4. Finalize Registration</h2>
-                <p>Please provide your basic contact details to tie your explicit policy consent to your registration profile.</p>
-                
-                <div class="form-group">
-                    <label for="fullName">Full Name (as in HKID/Passport)</label>
-                    <input type="text" id="fullName" required oninput="validateStep(4)">
-                </div>
-
-                <div class="form-group">
-                    <label for="studentEmail">Email Address</label>
-                    <input type="email" id="studentEmail" required oninput="validateStep(4)">
-                </div>
-            </div>
-
-            <!-- Global Survey Controls -->
-            <div class="button-group">
-                <button type="button" id="prevBtn" onclick="navigate(-1)" disabled>Previous</button>
-                <button type="button" id="nextBtn" class="btn-next" onclick="navigate(1)" disabled>Next</button>
-                <button type="submit" id="submitBtn" class="btn-next" style="display: none;" disabled>Submit Agreement</button>
-            </div>
-        </form>
-    </div>
-
-    <script>
-        let currentStep = 1;
-        const totalSteps = 4;
-
-        function updateProgress() {
-            const percentage = (currentStep / totalSteps) * 100;
-            document.getElementById('progressBar').style.width = `${percentage}%`;
-        }
-
-        function validateStep(step) {
-            let isValid = false;
-            
-            if (step >= 1 && step <= 3) {
-                // For steps 1-3, check if the corresponding checkbox is checked
-                const checkbox = document.getElementById(`consent${step}`);
-                isValid = checkbox && checkbox.checked;
-            } else if (step === 4) {
-                // For step 4, check if text inputs are filled out
-                const name = document.getElementById('fullName').value.trim();
-                const email = document.getElementById('studentEmail').value.trim();
-                isValid = name.length > 0 && email.length > 0 && document.getElementById('studentEmail').validity.valid;
-            }
-
-            // Enable/disable navigation buttons based on validation
-            if (step === totalSteps) {
-                document.getElementById('submitBtn').disabled = !isValid;
-            } else {
-                document.getElementById('nextBtn').disabled = !isValid;
-            }
-        }
-
-        function navigate(direction) {
-            // Hide current card
-            document.getElementById(`step${currentStep}`).classList.remove('active');
-            
-            // Adjust current step index
-            currentStep += direction;
-            
-            // Show new card
-            document.getElementById(`step${currentStep}`).classList.add('active');
-
-            // Handle button visibility
-            document.getElementById('prevBtn').disabled = currentStep === 1;
-
-            if (currentStep === totalSteps) {
-                document.getElementById('nextBtn').style.display = 'none';
-                document.getElementById('submitBtn').style.display = 'block';
-            } else {
-                document.getElementById('nextBtn').style.display = 'block';
-                document.getElementById('submitBtn').style.display = 'none';
-            }
-
-            // Re-validate the newly active step
-            validateStep(currentStep);
-            updateProgress();
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('fullName').value;
-            const email = document.getElementById('studentEmail').value;
-            
-            alert(`Thank you, ${name}! Your explicit consent has been logged. Email confirmation will be sent to ${email}.`);
-            
-            // Note: In production, you can redirect to your Google Form or send this 
-            // data to a backend handler (like Netlify Forms, Formspree, or Google Sheets API).
-        }
-    </script>
-</body>
-</html>
+           
