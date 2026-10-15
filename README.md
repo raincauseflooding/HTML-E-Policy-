@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Ed-surance - Private Candidate Exam Protection</title>
     <style>
-        /* Base Reset & Tap Fixes */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -28,7 +27,6 @@
             padding: 2rem 1rem;
         }
 
-        /* Branding */
         .brand-header {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -49,7 +47,6 @@
             font-weight: bold;
         }
 
-        /* Progress Bar */
         .progress-track {
             width: 100%;
             height: 6px;
@@ -66,7 +63,6 @@
             transition: width 0.2s ease-out;
         }
 
-        /* Survey Steps */
         .survey-card {
             display: none;
             border: 2px solid #000000;
@@ -101,7 +97,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Callout Boxes */
         .comparison-box {
             border: 1px solid #000000;
             background-color: #f9f9f9;
@@ -126,7 +121,6 @@
             border-left: 5px solid #555555;
         }
 
-        /* Rule Display List */
         .rule-list {
             border: 1px solid #000000;
             background-color: #fcfcfc;
@@ -149,7 +143,6 @@
             font-weight: bold;
         }
 
-        /* Accessible Touch Buttons */
         .touch-option {
             display: flex;
             align-items: center;
@@ -190,38 +183,6 @@
             color: #444444;
         }
 
-        /* Controls */
-        .button-bar {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        button {
-            flex: 1;
-            min-height: 48px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            border: 2px solid #000000;
-            background-color: #ffffff;
-            color: #000000;
-            cursor: pointer;
-            touch-action: manipulation;
-        }
-
-        button:active:not(:disabled) {
-            transform: translateY(1px);
-        }
-
-        .btn-action {
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        .btn-action:active {
-            background-color: #222222;
-        }
-
-        /* Generated Document Display */
         .policy-output {
             display: none;
             border: 2px solid #000000;
@@ -294,6 +255,27 @@
             display: flex;
             gap: 0.8rem;
             margin-top: 1.5rem;
+        }
+
+        button {
+            flex: 1;
+            min-height: 48px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            color: #000000;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .btn-action {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .btn-action:active {
+            background-color: #222222;
         }
 
         @media (max-width: 540px) {
@@ -384,16 +366,16 @@
                 <label class="touch-option">
                     <input type="radio" name="planChoice" value="Basic" onclick="instantAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Basic Plan — \$65</span>
-                        <span class="touch-subtitle">Covers Exam Fees only (Max claim payout: \$3,000)</span>
+                        <span class="touch-title">Basic Plan — $65</span>
+                        <span class="touch-subtitle">Covers Exam Fees only (Max claim payout: $3,000)</span>
                     </span>
                 </label>
 
                 <label class="touch-option">
                     <input type="radio" name="planChoice" value="Premium" onclick="instantAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Premium Partner Plan — \$300</span>
-                        <span class="touch-subtitle">Covers Exam & Retaker Tuition Vouchers (Max claim payout: \$10,000)</span>
+                        <span class="touch-title">Premium Partner Plan — $300</span>
+                        <span class="touch-subtitle">Covers Exam & Retaker Tuition Vouchers (Max claim payout: $10,000)</span>
                     </span>
                 </label>
             </div>
@@ -411,11 +393,6 @@
                         <span class="touch-subtitle">Builds the certificate instantly on your screen.</span>
                     </span>
                 </label>
-            </div>
-
-            <!-- Backwards Navigation Trigger -->
-            <div class="button-bar">
-                <button type="button" id="btnBack" onclick="stepChange(-1)" disabled>Go Back</button>
             </div>
         </form>
 
@@ -498,8 +475,6 @@
             document.getElementById('step' + step).classList.remove('active');
             step += delta;
             document.getElementById('step' + step).classList.add('active');
-
-            document.getElementById('btnBack').disabled = (step === 1);
             refreshProgress();
         }
 
@@ -517,14 +492,14 @@
 
             if (selected === 'Basic') {
                 outPlan.textContent = 'Basic Protection';
-                outFee.textContent = '\$65 HKD';
-                outCap.textContent = '\$3,000 HKD Max';
+                outFee.textContent = '$65 HKD';
+                outCap.textContent = '$3,000 HKD Max';
                 outDesc.textContent = 'Reimburses official HKDSE registration examination fees paid directly to the examination authority.';
             } else {
                 outPlan.textContent = 'Premium Partner Plan';
-                outFee.textContent = '\$300 HKD';
-                outCap.textContent = '\$10,000 HKD Max';
-                outDesc.textContent = 'Reimburses up to \$3,000 HKD for exam fees and issues up to \$7,000 HKD in retake tuition vouchers through partner tutoring centres.';
+                outFee.textContent = '$300 HKD';
+                outCap.textContent = '$10,000 HKD Max';
+                outDesc.textContent = 'Reimburses up to $3,000 HKD for exam fees and issues up to $7,000 HKD in retake tuition vouchers through partner tutoring centres.';
             }
 
             document.getElementById('outDate').textContent = new Date().toLocaleString();
@@ -542,4 +517,11 @@
             document.getElementById('progressTrack').style.display = 'block';
             document.getElementById('policySurvey').style.display = 'block';
 
-            document.getElementB
+            document.getElementById('step' + step).classList.remove('active');
+            step = 1;
+            document.getElementById('step1').classList.add('active');
+            refreshProgress();
+        }
+    </script>
+</body>
+</html>
