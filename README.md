@@ -455,16 +455,16 @@
                 <label class="touch-option">
                     <input type="radio" name="planChoice" value="Basic" onclick="instantAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Tier 1: Basic Plan — \$65</span>
-                        <span class="touch-subtitle">Covers Basic HKDSE Exam Fees (Max payout: \$3,000)</span>
+                        <span class="touch-title">Tier 1: Basic Plan — $65</span>
+                        <span class="touch-subtitle">Covers Basic HKDSE Exam Fees (Max payout: $3,000)</span>
                     </span>
                 </label>
 
                 <label class="touch-option">
                     <input type="radio" name="planChoice" value="Premium" onclick="instantAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Tier 2: Premium Partner Plan — \$300</span>
-                        <span class="touch-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: \$18,000)</span>
+                        <span class="touch-title">Tier 2: Premium Partner Plan — $300</span>
+                        <span class="touch-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: $18,000)</span>
                     </span>
                 </label>
             </div>
@@ -477,7 +477,7 @@
                 
                 <div class="input-group">
                     <label for="examYear">Select Exam Year</label>
-                    <select id="examYear" onchange="checkStep4Ready()">
+                    <select id="examYear" onchange="autoAdvanceStep4()">
                         <option value="">-- Choose Year --</option>
                         <option value="2027">2027</option>
                         <option value="2028">2028</option>
@@ -487,12 +487,12 @@
                 <div class="input-group" style="margin-top: 1.2rem;">
                     <label>Select Covered Subjects (Choose at least one)</label>
                     <div class="subject-grid">
-                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="English" onchange="checkStep4Ready()"> English</label>
-                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese" onchange="checkStep4Ready()"> Chinese</label>
-                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics" onchange="checkStep4Ready()"> Mathematics</label>
-                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Citizenship" onchange="checkStep4Ready()"> CS</label>
-                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physics" onchange="checkStep4Ready()"> Physics</label>
-                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chemistry" onchange="checkStep4Ready()"> Chemistry</label>
+                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="English" onchange="autoAdvanceStep4()"> English</label>
+                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese" onchange="autoAdvanceStep4()"> Chinese</label>
+                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics" onchange="autoAdvanceStep4()"> Mathematics</label>
+                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Citizenship" onchange="autoAdvanceStep4()"> CS</label>
+                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physics" onchange="autoAdvanceStep4()"> Physics</label>
+                        <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chemistry" onchange="autoAdvanceStep4()"> Chemistry</label>
                     </div>
                 </div>
 
@@ -501,8 +501,6 @@
                     <div class="candidate-num-display" id="candidateNumBox">---------</div>
                     <button type="button" class="btn-action" onclick="generateDseNumber()">Generate Number</button>
                 </div>
-
-                <button type="button" id="btnNextStep4" class="btn-action" style="margin-top: 1.5rem; display: none;" onclick="instantAdvance(4)">Continue to Generation</button>
             </div>
 
             <!-- STEP 5: Render Contract Trigger -->
@@ -580,4 +578,133 @@
                     <li>Achieving Level 5 or higher places performance outside claim bounds.</li>
                     <li>Missing official proof or hospital documentation voids claims.</li>
                     <li>Direct violation of HKEAA exam rules invalidates coverage.</li>
-                    <li>Voluntary
+                    <li>Voluntary absence without verifiable medical records is excluded.</li>
+                    <li>Lateness without official transit delay logs is ineligible.</li>
+                </ul>
+            </div>
+
+            <div class="cert-clause">
+                <h3>3. Privacy & Device Issuance</h3>
+                <p>This policy contract was generated strictly in your client runtime. No personal records, names, or emails have been uploaded or retained on external servers.</p>
+            </div>
+
+            <div class="cert-actions">
+                <button type="button" class="btn-action" onclick="restartSurvey()">Start Over</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let step = 1;
+        const total = 5;
+        let generatedCandNum = "";
+
+        function refreshProgress() {
+            document.getElementById('progressFill').style.width = ((step / total) * 100) + '%';
+        }
+
+        function instantAdvance(currentStep) {
+            if (currentStep === total) {
+                renderPolicy();
+            } else {
+                stepChange(1);
+            }
+        }
+
+        function stepChange(delta) {
+            document.getElementById('step' + step).classList.remove('active');
+            step += delta;
+            document.getElementById('step' + step).classList.add('active');
+            refreshProgress();
+        }
+
+        /* 
+           Step 4 Auto-Advance Logic:
+           When a year is chosen, at least one subject is checked, 
+           and a number is generated, it automatically jumps to step 5.
+        */
+        function autoAdvanceStep4() {
+            const year = document.getElementById('examYear').value;
+            const subjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
+
+            if (year !== "" && subjects.length > 0 && generatedCandNum !== "") {
+                stepChange(1);
+            }
+        }
+
+        function generateDseNumber() {
+            const year = document.getElementById('examYear').value || "2027";
+            const prefix = year.substring(2);
+            
+            let serializedDigits = "";
+            for (let i = 0; i < 7; i++) {
+                serializedDigits += Math.floor(Math.random() * 10);
+            }
+
+            generatedCandNum = prefix + serializedDigits;
+            document.getElementById('candidateNumBox').textContent = generatedCandNum;
+            
+            // Try to auto-advance if all fields are completed
+            autoAdvanceStep4();
+        }
+
+        function renderPolicy() {
+            let selected = 'Basic';
+            const radios = document.getElementsByName('planChoice');
+            for (let r of radios) {
+                if (r.checked) { selected = r.value; break; }
+            }
+
+            const selectedYear = document.getElementById('examYear').value;
+            const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjectChoice"]:checked')).map(el => el.value).join(', ');
+
+            const outPlan = document.getElementById('outPlan');
+            const outFee = document.getElementById('outFee');
+            const outCap = document.getElementById('outCap');
+            const outDesc = document.getElementById('outDesc');
+            
+            const outCandNum = document.getElementById('outCandNum');
+            const outYear = document.getElementById('outYear');
+            const outSubjects = document.getElementById('outSubjects');
+
+            outCandNum.textContent = generatedCandNum;
+            outYear.textContent = selectedYear;
+            outSubjects.textContent = selectedSubjects;
+
+            if (selected === 'Basic') {
+                outPlan.textContent = 'Tier 1: Basic Protection';
+                outFee.textContent = '$65 HKD';
+                outCap.textContent = '$3,000 HKD Max';
+                outDesc.textContent = 'Covers basic HKDSE registration examination fees up to $3,000 HKD paid directly to the examination authority.';
+            } else {
+                outPlan.textContent = 'Tier 2: Premium Partner Plan';
+                outFee.textContent = '$300 HKD';
+                outCap.textContent = '$18,000 HKD Max';
+                outDesc.textContent = 'Covers official basic HKDSE examination fees plus 37.5% of verified tutorial/retake fees (up to a combined maximum payout of $18,000 HKD) coordinated via partner tutoring centres.';
+            }
+
+            document.getElementById('outDate').textContent = new Date().toLocaleString();
+
+            document.getElementById('brandHeader').style.display = 'none';
+            document.getElementById('progressTrack').style.display = 'none';
+            document.getElementById('policySurvey').style.display = 'none';
+            document.getElementById('policyDisplay').classList.add('active');
+        }
+
+        function restartSurvey() {
+            document.getElementById('policySurvey').reset();
+            generatedCandNum = "";
+            document.getElementById('candidateNumBox').textContent = "---------";
+            document.getElementById('policyDisplay').classList.remove('active');
+            document.getElementById('brandHeader').style.display = 'block';
+            document.getElementById('progressTrack').style.display = 'block';
+            document.getElementById('policySurvey').style.display = 'block';
+
+            document.getElementById('step' + step).classList.remove('active');
+            step = 1;
+            document.getElementById('step1').classList.add('active');
+            refreshProgress();
+        }
+    </script>
+</body>
+</html>
