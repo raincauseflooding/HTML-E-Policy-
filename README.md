@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Ed-surance - Private Candidate Exam Protection</title>
     <style>
+        /* Base Reset & Tap Fixes */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,6 +28,7 @@
             padding: 2rem 1rem;
         }
 
+        /* Branding */
         .brand-header {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -47,6 +49,7 @@
             font-weight: bold;
         }
 
+        /* Progress Bar */
         .progress-track {
             width: 100%;
             height: 6px;
@@ -63,6 +66,7 @@
             transition: width 0.2s ease-out;
         }
 
+        /* Survey Steps */
         .survey-card {
             display: none;
             border: 2px solid #000000;
@@ -97,6 +101,7 @@
             margin-bottom: 1rem;
         }
 
+        /* Callout Boxes */
         .comparison-box {
             border: 1px solid #000000;
             background-color: #f9f9f9;
@@ -121,6 +126,7 @@
             border-left: 5px solid #555555;
         }
 
+        /* Rule Display List */
         .rule-list {
             border: 1px solid #000000;
             background-color: #fcfcfc;
@@ -143,6 +149,7 @@
             font-weight: bold;
         }
 
+        /* Accessible Touch Buttons */
         .touch-option {
             display: flex;
             align-items: center;
@@ -183,6 +190,7 @@
             color: #444444;
         }
 
+        /* Controls */
         .button-bar {
             display: flex;
             gap: 0.8rem;
@@ -213,6 +221,7 @@
             background-color: #222222;
         }
 
+        /* Generated Document Display */
         .policy-output {
             display: none;
             border: 2px solid #000000;
@@ -305,17 +314,19 @@
 <body>
 
     <div class="survey-container">
+        <!-- Logo Header -->
         <header class="brand-header" id="brandHeader">
             <div class="brand-logo">Ed-surance</div>
             <div class="brand-tagline">HKDSE Private Candidate Exam Protection</div>
         </header>
 
+        <!-- Progress Tracker -->
         <div class="progress-track" id="progressTrack">
             <div class="progress-fill" id="progressFill"></div>
         </div>
 
         <form id="policySurvey">
-            <!-- STEP 1 -->
+            <!-- STEP 1: Context Setup -->
             <div class="survey-card active" id="step1">
                 <div class="step-label">Step 1 of 4</div>
                 <h2>1. Why Ed-surance Exists</h2>
@@ -339,7 +350,7 @@
                 </label>
             </div>
 
-            <!-- STEP 2 -->
+            <!-- STEP 2: Exclusion Clauses -->
             <div class="survey-card" id="step2">
                 <div class="step-label">Step 2 of 4</div>
                 <h2>2. When We Cannot Pay</h2>
@@ -364,7 +375,7 @@
                 </label>
             </div>
 
-            <!-- STEP 3 -->
+            <!-- STEP 3: Plan Tier Selection -->
             <div class="survey-card" id="step3">
                 <div class="step-label">Step 3 of 4</div>
                 <h2>3. Choose Your Plan</h2>
@@ -387,7 +398,7 @@
                 </label>
             </div>
 
-            <!-- STEP 4 -->
+            <!-- STEP 4: Render Contract Trigger -->
             <div class="survey-card" id="step4">
                 <div class="step-label">Step 4 of 4</div>
                 <h2>4. Generate Document</h2>
@@ -402,11 +413,13 @@
                 </label>
             </div>
 
+            <!-- Backwards Navigation Trigger -->
             <div class="button-bar">
                 <button type="button" id="btnBack" onclick="stepChange(-1)" disabled>Go Back</button>
             </div>
         </form>
 
+        <!-- THE GENERATED LOCAL E-POLICY -->
         <section id="policyDisplay" class="policy-output">
             <header class="cert-header">
                 <h1 class="cert-title">Ed-surance Policy</h1>
@@ -517,4 +530,16 @@
             document.getElementById('outDate').textContent = new Date().toLocaleString();
 
             document.getElementById('brandHeader').style.display = 'none';
-            document.getElementById('progressTrack').style.disp
+            document.getElementById('progressTrack').style.display = 'none';
+            document.getElementById('policySurvey').style.display = 'none';
+            document.getElementById('policyDisplay').classList.add('active');
+        }
+
+        function restartSurvey() {
+            document.getElementById('policySurvey').reset();
+            document.getElementById('policyDisplay').classList.remove('active');
+            document.getElementById('brandHeader').style.display = 'block';
+            document.getElementById('progressTrack').style.display = 'block';
+            document.getElementById('policySurvey').style.display = 'block';
+
+            document.getElementB
