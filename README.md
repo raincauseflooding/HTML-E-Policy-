@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Ed-surance - Interactive Policy & Certificate</title>
+    <title>Ed-surance - Simple Exam Protection</title>
     <style>
         * {
             box-sizing: border-box;
@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.5;
             color: #000000;
             background-color: #ffffff;
@@ -22,7 +22,7 @@
 
         .survey-container {
             width: 100%;
-            max-width: 720px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 2rem 1rem;
         }
@@ -37,7 +37,6 @@
         .brand-logo {
             font-size: 1.8rem;
             font-weight: 900;
-            letter-spacing: -0.02em;
             text-transform: uppercase;
         }
 
@@ -45,7 +44,6 @@
             font-size: 0.85rem;
             color: #444444;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .progress-track {
@@ -98,7 +96,7 @@
             margin-bottom: 1rem;
         }
 
-        .exclusion-box {
+        .rule-list {
             border: 1px solid #000000;
             background-color: #fcfcfc;
             padding: 0.8rem;
@@ -106,17 +104,17 @@
             font-size: 0.85rem;
         }
 
-        .exclusion-row {
+        .rule-row {
             margin-bottom: 0.6rem;
             display: flex;
             gap: 0.5rem;
         }
 
-        .exclusion-row:last-child {
+        .rule-row:last-child {
             margin-bottom: 0;
         }
 
-        .exclusion-bullet {
+        .rule-bullet {
             font-weight: bold;
         }
 
@@ -175,17 +173,10 @@
             color: #000000;
             cursor: pointer;
             touch-action: manipulation;
-            transition: background-color 0.15s ease;
         }
 
         button:active:not(:disabled) {
             transform: translateY(1px);
-        }
-
-        button:disabled {
-            border-color: #cccccc;
-            color: #cccccc;
-            cursor: not-allowed;
         }
 
         .btn-action {
@@ -193,15 +184,8 @@
             color: #ffffff;
         }
 
-        .btn-action:active:not(:disabled) {
+        .btn-action:active {
             background-color: #222222;
-        }
-
-        button:focus-visible, 
-        input:focus-visible, 
-        .touch-option:focus-within {
-            outline: 3px solid #000000;
-            outline-offset: 2px;
         }
 
         .policy-output {
@@ -240,7 +224,6 @@
             border: 1px solid #000000;
             padding: 0.6rem;
             width: 50%;
-            vertical-align: top;
         }
 
         .meta-label {
@@ -294,13 +277,6 @@
         }
 
         @media print {
-            body {
-                background: #ffffff;
-            }
-            .survey-container {
-                max-width: 100%;
-                padding: 0;
-            }
             .brand-header, .progress-track, #policySurvey, .cert-actions {
                 display: none !important;
             }
@@ -326,240 +302,141 @@
         </div>
 
         <form id="policySurvey">
+            <!-- STEP 1 -->
             <div class="survey-card active" id="step1">
                 <div class="step-label">Step 1 of 4</div>
-                <h2>1. Scope & Intent</h2>
-                <p>Ed-surance provides exam risk protection for HKDSE candidates. Tap the checkbox below to begin review.</p>
+                <h2>1. Welcome to Ed-surance</h2>
+                <p>We protect students from unexpected exam issues. Check the box below to start.</p>
                 
                 <label class="touch-option">
-                    <input type="checkbox" id="chk1" onchange="runValidation(1)">
+                    <input type="checkbox" id="chk1" onchange="autoAdvance(1)">
                     <span class="touch-text">
-                        <span class="touch-title">I understand the plan objective</span>
-                        <span class="touch-subtitle">Confirms understanding of structural exam protection.</span>
+                        <span class="touch-title">I want to read the rules</span>
+                        <span class="touch-subtitle">Tap here to go to the next step.</span>
                     </span>
                 </label>
             </div>
 
+            <!-- STEP 2 -->
             <div class="survey-card" id="step2">
                 <div class="step-label">Step 2 of 4</div>
-                <h2>2. Eligibility & Exclusions</h2>
-                <p>To prevent moral hazard, the following cases are ineligible for compensation:</p>
+                <h2>2. When we cannot pay</h2>
+                <p>To keep this plan fair and cheap for everyone, we cannot pay claims if:</p>
                 
-                <div class="exclusion-box">
-                    <div class="exclusion-row"><span class="exclusion-bullet">•</span><span>Mock exam scores below Level 2 (limited post-secondary foundation).</span></div>
-                    <div class="exclusion-row"><span class="exclusion-bullet">•</span><span>Low attendance in classes/tutors (insufficient preparation).</span></div>
-                    <div class="exclusion-row"><span class="exclusion-bullet">•</span><span>Real DSE result Level 5 or higher (top performance secured).</span></div>
-                    <div class="exclusion-row"><span class="exclusion-bullet">•</span><span>Missing or invalid official verification documents.</span></div>
-                    <div class="exclusion-row"><span class="exclusion-bullet">•</span><span>Exam rule violations or cheating misconduct.</span></div>
-                    <div class="exclusion-row"><span class="exclusion-bullet">•</span><span>Voluntary absence without an emergency rationale.</span></div>
-                    <div class="exclusion-row"><span class="exclusion-bullet">•</span><span>Delays lacking official third-party transit/incident logs.</span></div>
+                <div class="rule-list">
+                    <div class="rule-row"><span class="rule-bullet">•</span><span>Your mock exam result is below Level 2.</span></div>
+                    <div class="rule-row"><span class="rule-bullet">•</span><span>You miss too many school days or tutor classes.</span></div>
+                    <div class="rule-row"><span class="rule-bullet">•</span><span>You score Level 5 or higher in the real exam.</span></div>
+                    <div class="rule-row"><span class="rule-bullet">•</span><span>You do not give us clear, official proof.</span></div>
+                    <div class="rule-row"><span class="rule-bullet">•</span><span>You break official exam rules (like cheating).</span></div>
+                    <div class="rule-row"><span class="rule-bullet">•</span><span>You skip exams just because you feel unprepared.</span></div>
+                    <div class="rule-row"><span class="rule-bullet">•</span><span>You are late but have no official transport delays.</span></div>
                 </div>
 
                 <label class="touch-option">
-                    <input type="checkbox" id="chk2" onchange="runValidation(2)">
+                    <input type="checkbox" id="chk2" onchange="autoAdvance(2)">
                     <span class="touch-text">
-                        <span class="touch-title">I accept these exclusion terms</span>
-                        <span class="touch-subtitle">Acknowledged to protect policy reserve integrity.</span>
+                        <span class="touch-title">I understand these rules</span>
+                        <span class="touch-subtitle">Tap here to choose your plan.</span>
                     </span>
                 </label>
             </div>
 
+            <!-- STEP 3 -->
             <div class="survey-card" id="step3">
                 <div class="step-label">Step 3 of 4</div>
-                <h2>3. Plan Selection</h2>
-                <p>Select your tier to establish price and claim caps:</p>
+                <h2>3. Choose Your Plan</h2>
+                <p>Pick the best level of protection for your needs:</p>
                 
                 <label class="touch-option">
-                    <input type="radio" name="planChoice" value="Basic" onclick="runValidation(3)">
+                    <input type="radio" name="planChoice" value="Basic" onclick="autoAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Basic Plan — $65</span>
-                        <span class="touch-subtitle">Exam fee coverage • Max claim $3,000</span>
+                        <span class="touch-title">Basic Plan — \$65</span>
+                        <span class="touch-subtitle">Covers Exam Fees (Max payout: \$3,000)</span>
                     </span>
                 </label>
 
                 <label class="touch-option">
-                    <input type="radio" name="planChoice" value="Premium" onclick="runValidation(3)">
+                    <input type="radio" name="planChoice" value="Premium" onclick="autoAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Premium Plan — $210</span>
-                        <span class="touch-subtitle">Exam & tuition coverage • Max claim $10,000</span>
+                        <span class="touch-title">Premium Plan — \$210</span>
+                        <span class="touch-subtitle">Covers Exam & Tuition Fees (Max payout: \$10,000)</span>
                     </span>
                 </label>
             </div>
 
+            <!-- STEP 4 -->
             <div class="survey-card" id="step4">
                 <div class="step-label">Step 4 of 4</div>
-                <h2>4. Generate Contract</h2>
-                <p>No personal identity or email records are collected. Proceed to create your local printable certificate.</p>
+                <h2>4. Get Your Document</h2>
+                <p>We do not collect any personal data or email addresses. Click below to show your policy.</p>
                 
                 <label class="touch-option">
-                    <input type="checkbox" id="chk4" onchange="runValidation(4)">
+                    <input type="checkbox" id="chk4" onchange="autoAdvance(4)">
                     <span class="touch-text">
-                        <span class="touch-title">Authorize policy generation</span>
-                        <span class="touch-subtitle">Build customized document on client device.</span>
+                        <span class="touch-title">Create my E-Policy Contract</span>
+                        <span class="touch-subtitle">Builds the certificate instantly on your screen.</span>
                     </span>
                 </label>
             </div>
 
             <div class="button-bar">
-                <button type="button" id="btnBack" onclick="stepChange(-1)" disabled>Back</button>
-                <button type="button" id="btnNext" class="btn-action" onclick="stepChange(1)" disabled>Next</button>
-                <button type="button" id="btnBuild" class="btn-action" style="display: none;" onclick="renderPolicy()" disabled>Create E-Policy</button>
+                <button type="button" id="btnBack" onclick="stepChange(-1)" disabled>Go Back</button>
             </div>
         </form>
 
         <section id="policyDisplay" class="policy-output">
             <header class="cert-header">
-                <h1 class="cert-title">Ed-surance E-Policy</h1>
-                <p>HKDSE Protection Plan Contract</p>
+                <h1 class="cert-title">Ed-surance Policy</h1>
+                <p>HKDSE Protection Agreement</p>
             </header>
 
             <table class="meta-table">
                 <tr>
                     <td>
-                        <span class="meta-label">Selected Tier</span>
+                        <span class="meta-label">Your Plan</span>
                         <strong id="outPlan">-</strong>
                     </td>
                     <td>
-                        <span class="meta-label">Total Premium</span>
+                        <span class="meta-label">Cost</span>
                         <strong id="outFee">-</strong>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span class="meta-label">Coverage Ceiling</span>
+                        <span class="meta-label">Max Claim Limit</span>
                         <strong id="outCap">-</strong>
                     </td>
                     <td>
-                        <span class="meta-label">Generation Time</span>
+                        <span class="meta-label">Active Since</span>
                         <span id="outDate">-</span>
                     </td>
                 </tr>
             </table>
 
             <div class="cert-clause">
-                <h3>1. Benefit Scope</h3>
+                <h3>1. What we cover</h3>
                 <p id="outDesc">-</p>
             </div>
 
             <div class="cert-clause">
-                <h3>2. Binding Exclusions</h3>
+                <h3>2. Policy Rules (No Pay Cases)</h3>
                 <ul>
-                    <li>Mock results below Level 2 void qualification.</li>
-                    <li>Unsubstantiated attendance lapses forfeit payouts.</li>
-                    <li>Real exam results at or exceeding Level 5 fall outside claim scope.</li>
-                    <li>Absence of official third-party logs disqualifies delays.</li>
-                    <li>Academic malpractice or voluntary absence voids all benefits.</li>
+                    <li>Mock results below Level 2.</li>
+                    <li>Low attendance in classes or tutoring.</li>
+                    <li>Scoring Level 5 or higher in the real exam.</li>
+                    <li>Failing to provide official proof documents.</li>
+                    <li>Breaking official exam rules.</li>
+                    <li>Skipping exams without a valid emergency.</li>
+                    <li>Lateness without official transit logs.</li>
                 </ul>
             </div>
 
             <div class="cert-clause">
-                <h3>3. Privacy & Device Issuance</h3>
-                <p>Generated locally inside client runtime. No personal identification data or telemetry transferred.</p>
+                <h3>3. Safe & Private</h3>
+                <p>This contract is generated on your own phone or computer. No personal details are saved online.</p>
             </div>
 
             <div class="cert-actions">
                 <button type="button" class="btn-action" onclick="window.print()">Print / Save PDF</button>
-                <button type="button" onclick="restartSurvey()">Start Over</button>
-            </div>
-        </section>
-    </div>
-
-    <script>
-        let step = 1;
-        const total = 4;
-
-        function refreshProgress() {
-            document.getElementById('progressFill').style.width = ((step / total) * 100) + '%';
-        }
-
-        function runValidation(targetStep) {
-            let pass = false;
-            if (targetStep === 1 || targetStep === 2 || targetStep === 4) {
-                const box = document.getElementById('chk' + targetStep);
-                pass = box && box.checked;
-            } else if (targetStep === 3) {
-                const radios = document.getElementsByName('planChoice');
-                for (let r of radios) {
-                    if (r.checked) { pass = true; break; }
-                }
-            }
-
-            if (step === total) {
-                document.getElementById('btnBuild').disabled = !pass;
-            } else {
-                document.getElementById('btnNext').disabled = !pass;
-            }
-        }
-
-        function stepChange(delta) {
-            document.getElementById('step' + step).classList.remove('active');
-            step += delta;
-            document.getElementById('step' + step).classList.add('active');
-
-            document.getElementById('btnBack').disabled = (step === 1);
-
-            if (step === total) {
-                document.getElementById('btnNext').style.display = 'none';
-                document.getElementById('btnBuild').style.display = 'block';
-            } else {
-                document.getElementById('btnNext').style.display = 'block';
-                document.getElementById('btnBuild').style.display = 'none';
-            }
-
-            runValidation(step);
-            refreshProgress();
-        }
-
-        function renderPolicy() {
-            let selected = 'Basic';
-            const radios = document.getElementsByName('planChoice');
-            for (let r of radios) {
-                if (r.checked) { selected = r.value; break; }
-            }
-
-            const outPlan = document.getElementById('outPlan');
-            const outFee = document.getElementById('outFee');
-            const outCap = document.getElementById('outCap');
-            const outDesc = document.getElementById('outDesc');
-
-            if (selected === 'Basic') {
-                outPlan.textContent = 'Basic Protection';
-                outFee.textContent = '$65 HKD';
-                outCap.textContent = '$3,000 HKD Max';
-                outDesc.textContent = 'Limited strictly to compensation for official HKDSE registration examination fees.';
-            } else {
-                outPlan.textContent = 'Premium Protection';
-                outFee.textContent = '$210 HKD';
-                outCap.textContent = '$10,000 HKD Max';
-                outDesc.textContent = 'Extends compensation to both official registration fees and preparatory tuition costs.';
-            }
-
-            document.getElementById('outDate').textContent = new Date().toLocaleString();
-
-            document.getElementById('brandHeader').style.display = 'none';
-            document.getElementById('progressTrack').style.display = 'none';
-            document.getElementById('policySurvey').style.display = 'none';
-            document.getElementById('policyDisplay').classList.add('active');
-        }
-
-        function restartSurvey() {
-            document.getElementById('policySurvey').reset();
-            document.getElementById('policyDisplay').classList.remove('active');
-            document.getElementById('brandHeader').style.display = 'block';
-            document.getElementById('progressTrack').style.display = 'block';
-            document.getElementById('policySurvey').style.display = 'block';
-
-            document.getElementById('step' + step).classList.remove('active');
-            step = 1;
-            document.getElementById('step1').classList.add('active');
-
-            document.getElementById('btnBack').disabled = true;
-            document.getElementById('btnNext').style.display = 'block';
-            document.getElementById('btnBuild').style.display = 'none';
-
-            refreshProgress();
-            runValidation(1);
-        }
-    </script>
-</body>
-</html>
+                <button type="button" onclick="restartSurvey()">Start Over</butto
