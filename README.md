@@ -97,6 +97,24 @@
             margin-bottom: 1rem;
         }
 
+        /* NEW: Formal Notice Alert Box */
+        .formal-warning-box {
+            border: 2px solid #000000;
+            background-color: #fafafa;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .formal-warning-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+        }
+
         .comparison-box {
             border: 1px solid #000000;
             background-color: #f9f9f9;
@@ -311,6 +329,13 @@
             <!-- STEP 1: Context Setup -->
             <div class="survey-card active" id="step1">
                 <div class="step-label">Step 1 of 4</div>
+                
+                <!-- NEW: Parents & Students Formal Warning Reminder -->
+                <div class="formal-warning-box">
+                    <div class="formal-warning-title">📢 Important Notice for Parents & Students:</div>
+                    If you are worried about the high costs, loss of study momentum, or missing the examination due to sudden emergencies, you can buy our protection plan to secure your peace of mind.
+                </div>
+
                 <h2>1. Why Ed-surance Exists</h2>
                 <p>Global exams like IELTS or IGCSE offer refunds if you miss an exam. In contrast, the HKDSE only offers "assessed grades" to day-school students.</p>
                 
