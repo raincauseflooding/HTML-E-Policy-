@@ -97,6 +97,21 @@
             margin-bottom: 1rem;
         }
 
+        .comparison-box {
+            border: 1px solid #000000;
+            background-color: #f9f9f9;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+
         .highlight-alert {
             background-color: #000000;
             color: #ffffff;
@@ -292,7 +307,7 @@
     <div class="survey-container">
         <header class="brand-header" id="brandHeader">
             <div class="brand-logo">Ed-surance</div>
-            <div class="brand-tagline">Private Candidate Exam Protection</div>
+            <div class="brand-tagline">HKDSE Private Candidate Exam Protection</div>
         </header>
 
         <div class="progress-track" id="progressTrack">
@@ -303,11 +318,16 @@
             <!-- STEP 1 -->
             <div class="survey-card active" id="step1">
                 <div class="step-label">Step 1 of 4</div>
-                <h2>1. Why Private Candidates Need Protection</h2>
-                <p>Private, mainland, and non-local candidates <strong>cannot get assessed grades</strong> from the HKEAA. If you miss an exam, you forfeit your registration fees, your university placement, and a full year of tuition to retake.</p>
+                <h2>1. Why Ed-surance Exists</h2>
+                <p>Global exams like IELTS or IGCSE offer refunds if you miss an exam. In contrast, the HKDSE only offers "assessed grades" to day-school students.</p>
                 
+                <div class="comparison-box">
+                    <div class="comparison-title">❌ The Private Candidate Problem:</div>
+                    If you are a private, mainland, or international student, <strong>you cannot get an assessed grade</strong> if you miss the DSE. You get an automatic "Absent" (0 score) and lose your exam fee plus a whole year of study.
+                </div>
+
                 <div class="highlight-alert">
-                    ⚠️ Private candidates face an average 13% absence rate. Ed-surance is designed to secure you against this financial loss.
+                    🛡️ Ed-surance is the only plan that bridges this gap, providing financial safety for private candidates facing the 13% baseline absence rate.
                 </div>
 
                 <label class="touch-option">
@@ -323,7 +343,7 @@
             <div class="survey-card" id="step2">
                 <div class="step-label">Step 2 of 4</div>
                 <h2>2. When We Cannot Pay</h2>
-                <p>To keep plans fair and affordable for all honest students, claims are not payable if:</p>
+                <p>To keep plans fair and cheap for all honest students, claims are not payable if:</p>
                 
                 <div class="rule-list">
                     <div class="rule-row"><span class="rule-bullet">•</span><span>Your mock exam result is below Level 2.</span></div>
@@ -353,16 +373,16 @@
                 <label class="touch-option">
                     <input type="radio" name="planChoice" value="Basic" onclick="instantAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Basic Plan — $65</span>
-                        <span class="touch-subtitle">Covers Exam Fees only (Max claim payout: $3,000)</span>
+                        <span class="touch-title">Basic Plan — \$65</span>
+                        <span class="touch-subtitle">Covers Exam Fees only (Max claim payout: \$3,000)</span>
                     </span>
                 </label>
 
                 <label class="touch-option">
                     <input type="radio" name="planChoice" value="Premium" onclick="instantAdvance(3)">
                     <span class="touch-text">
-                        <span class="touch-title">Premium Partner Plan — $300</span>
-                        <span class="touch-subtitle">Covers Exam & Retaker Tuition Vouchers (Max claim payout: $10,000)</span>
+                        <span class="touch-title">Premium Partner Plan — \$300</span>
+                        <span class="touch-subtitle">Covers Exam & Retaker Tuition Vouchers (Max claim payout: \$10,000)</span>
                     </span>
                 </label>
             </div>
@@ -371,7 +391,7 @@
             <div class="survey-card" id="step4">
                 <div class="step-label">Step 4 of 4</div>
                 <h2>4. Generate Document</h2>
-                <p>No personal identity or email records are collected. Tap below to build your agreement immediately.</p>
+                <p>We do not collect any personal data or email addresses. Tap below to build your agreement immediately.</p>
                 
                 <label class="touch-option">
                     <input type="checkbox" id="chk4" onchange="instantAdvance(4)">
@@ -484,38 +504,17 @@
 
             if (selected === 'Basic') {
                 outPlan.textContent = 'Basic Protection';
-                outFee.textContent = '$65 HKD';
-                outCap.textContent = '$3,000 HKD Max';
+                outFee.textContent = '\$65 HKD';
+                outCap.textContent = '\$3,000 HKD Max';
                 outDesc.textContent = 'Reimburses official HKDSE registration examination fees paid directly to the examination authority.';
             } else {
                 outPlan.textContent = 'Premium Partner Plan';
-                outFee.textContent = '$300 HKD';
-                outCap.textContent = '$10,000 HKD Max';
-                outDesc.textContent = 'Reimburses up to $3,000 HKD for exam fees and issues up to $7,000 HKD in retake tuition vouchers through partner tutoring centres.';
+                outFee.textContent = '\$300 HKD';
+                outCap.textContent = '\$10,000 HKD Max';
+                outDesc.textContent = 'Reimburses up to \$3,000 HKD for exam fees and issues up to \$7,000 HKD in retake tuition vouchers through partner tutoring centres.';
             }
 
             document.getElementById('outDate').textContent = new Date().toLocaleString();
 
             document.getElementById('brandHeader').style.display = 'none';
-            document.getElementById('progressTrack').style.display = 'none';
-            document.getElementById('policySurvey').style.display = 'none';
-            document.getElementById('policyDisplay').classList.add('active');
-        }
-
-        function restartSurvey() {
-            document.getElementById('policySurvey').reset();
-            document.getElementById('policyDisplay').classList.remove('active');
-            document.getElementById('brandHeader').style.display = 'block';
-            document.getElementById('progressTrack').style.display = 'block';
-            document.getElementById('policySurvey').style.display = 'block';
-
-            document.getElementById('step' + step).classList.remove('active');
-            step = 1;
-            document.getElementById('step1').classList.add('active');
-
-            document.getElementById('btnBack').disabled = true;
-            refreshProgress();
-        }
-    </script>
-</body>
-</html>
+            document.getElementById('progressTrack').style.disp
