@@ -1,5 +1,7 @@
 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -11,22 +13,25 @@
             padding: 0;
             -webkit-tap-highlight-color: transparent;
         }
-/* Disable and hide all hover links, anchor icons, and auto-generated header links */
-h1 a, h2 a, h3 a, h4 a, 
-.anchor, .header-link, .markdown-anchor, 
-[id] > a, [class*="anchor"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    text-decoration: none !important;
-}
 
-/* Ensure headings do not show pointers or look clickable */
-h1, h2, h3, h4 {
-    cursor: default !important;
-    user-select: text !important;
-}
+        /* ------------------------------------------------------------- */
+        /* 🛡️ ANTI-ANCHOR RULES (PERMANENTLY HIDE HOVER LINKS & pointer cursors) */
+        /* ------------------------------------------------------------- */
+        h1 a, h2 a, h3 a, h4 a, 
+        .anchor, .header-link, .markdown-anchor, 
+        [id] > a, [class*="anchor"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            text-decoration: none !important;
+        }
+
+        h1, h2, h3, h4 {
+            cursor: default !important;
+            user-select: text !important;
+        }
+        /* ------------------------------------------------------------- */
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -161,7 +166,6 @@ h1, h2, h3, h4 {
             margin-bottom: 0.5rem;
         }
 
-        /* Large, Bulletproof Button Cards */
         .card-btn {
             display: block;
             width: 100%;
@@ -238,7 +242,6 @@ h1, h2, h3, h4 {
             gap: 0.5rem;
         }
 
-        /* Bulletproof Checkbox Container */
         .sub-box {
             display: flex;
             align-items: center;
@@ -361,6 +364,7 @@ h1, h2, h3, h4 {
         }
     </style>
 </head>
+
 <body>
 
     <div class="survey-container">
@@ -432,13 +436,13 @@ h1, h2, h3, h4 {
                 <p>Select your protection level:</p>
                 
                 <button type="button" class="card-btn" onclick="selectPlan('Basic')">
-                    <span class="card-btn-title">Tier 1: Basic Plan — $65</span>
-                    <span class="card-btn-subtitle">Covers Basic HKDSE Exam Fees (Max payout: $3,000)</span>
+                    <span class="card-btn-title">Tier 1: Basic Plan — \$65</span>
+                    <span class="card-btn-subtitle">Covers Basic HKDSE Exam Fees (Max payout: \$3,000)</span>
                 </button>
 
                 <button type="button" class="card-btn" onclick="selectPlan('Premium')">
-                    <span class="card-btn-title">Tier 2: Premium Partner Plan — $210</span>
-                    <span class="card-btn-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: $18,000)</span>
+                    <span class="card-btn-title">Tier 2: Premium Partner Plan — \$210</span>
+                    <span class="card-btn-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: \$18,000)</span>
                 </button>
             </div>
 
@@ -653,14 +657,14 @@ h1, h2, h3, h4 {
 
             if (selectedPlanTier === 'Basic') {
                 outPlan.textContent = 'Tier 1: Basic Protection';
-                outFee.textContent = '$65 HKD';
-                outCap.textContent = '$3,000 HKD Max';
-                outDesc.textContent = 'Covers basic HKDSE registration examination fees up to $3,000 HKD paid directly to the examination authority.';
+                outFee.textContent = '\$65 HKD';
+                outCap.textContent = '\$3,000 HKD Max';
+                outDesc.textContent = 'Covers basic HKDSE registration examination fees up to \$3,000 HKD paid directly to the examination authority.';
             } else {
                 outPlan.textContent = 'Tier 2: Premium Partner Plan';
-                outFee.textContent = '$300 HKD';
-                outCap.textContent = '$18,000 HKD Max';
-                outDesc.textContent = 'Covers official basic HKDSE examination fees plus 37.5% of verified tutorial/retake fees (up to a combined maximum payout of $18,000 HKD) coordinated via partner tutoring centres.';
+                outFee.textContent = '\$210 HKD';
+                outCap.textContent = '\$18,000 HKD Max';
+                outDesc.textContent = 'Covers official basic HKDSE examination fees plus 37.5% of verified tutorial/retake fees (up to a combined maximum payout of \$18,000 HKD) coordinated via partner tutoring centres.';
             }
 
             document.getElementById('outDate').textContent = new Date().toLocaleString();
@@ -673,18 +677,3 @@ h1, h2, h3, h4 {
 
         function restartSurvey() {
             document.getElementById('policySurvey').reset();
-            generatedCandNum = "";
-            document.getElementById('candidateNumBox').textContent = "---------";
-            document.getElementById('policyDisplay').classList.remove('active');
-            document.getElementById('brandHeader').style.display = 'block';
-            document.getElementById('progressTrack').style.display = 'block';
-            document.getElementById('policySurvey').style.display = 'block';
-
-            document.getElementById('step' + step).classList.remove('active');
-            step = 1;
-            document.getElementById('step1').classList.add('active');
-            refreshProgress();
-        }
-    </script>
-</body>
-</html>
