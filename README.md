@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Ed-surance - Private Candidate Exam Protection</title>
+    <title>Ed-surance - Private Candidate Protection</title>
     <style>
         * {
             box-sizing: border-box;
@@ -17,21 +17,20 @@
             line-height: 1.5;
             color: #000000;
             background-color: #ffffff;
-            -webkit-font-smoothing: antialiased;
+            padding: 1.5rem 1rem;
         }
 
         .survey-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto;
-            padding: 2rem 1rem;
         }
 
         .brand-header {
             text-align: center;
             margin-bottom: 1.5rem;
             border-bottom: 2px solid #000000;
-            padding-bottom: 1rem;
+            padding-bottom: 0.8rem;
         }
 
         .brand-logo {
@@ -60,7 +59,7 @@
             height: 100%;
             width: 20%;
             background-color: #000000;
-            transition: width 0.2s ease-out;
+            transition: width 0.2s ease;
         }
 
         .survey-card {
@@ -103,15 +102,12 @@
             padding: 1rem;
             margin-bottom: 1.2rem;
             font-size: 0.9rem;
-            line-height: 1.4;
         }
 
         .formal-warning-title {
             font-weight: 800;
             text-transform: uppercase;
             margin-bottom: 0.3rem;
-            font-size: 0.85rem;
-            letter-spacing: 0.03em;
         }
 
         .comparison-box {
@@ -126,7 +122,6 @@
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 0.4rem;
-            font-size: 0.9rem;
         }
 
         .highlight-alert {
@@ -147,67 +142,39 @@
         }
 
         .rule-row {
-            margin-bottom: 0.6rem;
-            display: flex;
-            gap: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .rule-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .rule-bullet {
-            font-weight: bold;
-        }
-
-        /* Native Clickable Action Cards */
+        /* Large, Bulletproof Button Cards */
         .card-btn {
-            display: flex;
-            align-items: center;
+            display: block;
             width: 100%;
-            min-height: 60px;
-            padding: 0.8rem 1rem;
+            min-height: 54px;
+            padding: 1rem;
             border: 2px solid #000000;
             margin-top: 0.8rem;
             background-color: #ffffff;
             cursor: pointer;
             text-align: left;
-            touch-action: manipulation;
-            transition: background 0.15s ease;
+            font-family: inherit;
         }
 
         .card-btn:active {
             background-color: #eeeeee;
         }
 
-        .card-btn-indicator {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #000000;
-            margin-right: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-weight: 900;
-            font-size: 14px;
-        }
-
-        .card-btn-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-        }
-
         .card-btn-title {
+            display: block;
             font-size: 0.95rem;
             font-weight: 700;
             color: #000000;
+            margin-bottom: 0.15rem;
         }
 
         .card-btn-subtitle {
+            display: block;
             font-size: 0.8rem;
-            color: #444444;
+            color: #555555;
         }
 
         .input-group {
@@ -229,57 +196,49 @@
             border: 2px solid #000000;
             font-size: 0.95rem;
             background-color: #ffffff;
-            font-family: inherit;
         }
 
         .subject-scroll-area {
-            max-height: 250px;
+            max-height: 220px;
             overflow-y: auto;
             border: 2px solid #000000;
             padding: 0.6rem;
             background-color: #fafafa;
-            margin-top: 0.4rem;
         }
 
-        .subject-category-title {
+        .subject-category {
             font-size: 0.8rem;
             font-weight: 800;
             text-transform: uppercase;
-            color: #444444;
+            color: #555555;
             margin: 0.6rem 0 0.3rem 0;
             border-bottom: 1px solid #cccccc;
-            padding-bottom: 0.2rem;
-        }
-
-        .subject-category-title:first-child {
-            margin-top: 0;
+            padding-bottom: 0.1rem;
         }
 
         .subject-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.5rem;
-            margin-bottom: 0.5rem;
         }
 
-        .subject-label {
+        /* Bulletproof Checkbox Container */
+        .sub-box {
             display: flex;
             align-items: center;
-            padding: 0.6rem;
+            padding: 0.5rem;
             border: 1px solid #000000;
             background-color: #ffffff;
-            cursor: pointer;
             font-size: 0.85rem;
             font-weight: 600;
-            user-select: none;
+            cursor: pointer;
         }
 
-        .subject-label input {
-            margin-right: 0.6rem;
+        .sub-box input {
+            margin-right: 0.5rem;
             width: 18px;
             height: 18px;
             accent-color: #000000;
-            flex-shrink: 0;
         }
 
         .generator-container {
@@ -298,7 +257,7 @@
             font-family: monospace;
         }
 
-        .action-button {
+        .btn-action {
             width: 100%;
             min-height: 48px;
             font-size: 0.95rem;
@@ -307,10 +266,9 @@
             background-color: #000000;
             color: #ffffff;
             cursor: pointer;
-            touch-action: manipulation;
         }
 
-        .action-button:active {
+        .btn-action:active {
             background-color: #222222;
         }
 
@@ -331,12 +289,6 @@
             border-bottom: 2px solid #000000;
             padding-bottom: 1rem;
             margin-bottom: 1.2rem;
-        }
-
-        .cert-title {
-            font-size: 1.4rem;
-            font-weight: 900;
-            text-transform: uppercase;
         }
 
         .meta-table {
@@ -378,16 +330,6 @@
             margin-top: 0.3rem;
         }
 
-        .cert-clause li {
-            margin-bottom: 0.3rem;
-        }
-
-        .cert-actions {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
         @media (max-width: 540px) {
             .meta-table td {
                 display: block;
@@ -395,9 +337,6 @@
             }
             .meta-table tr {
                 display: flex;
-                flex-direction: column;
-            }
-            .cert-actions {
                 flex-direction: column;
             }
             .subject-grid {
@@ -421,7 +360,7 @@
         </div>
 
         <form id="policySurvey" onsubmit="return false;">
-            <!-- STEP 1: Context Setup -->
+            <!-- STEP 1 -->
             <div class="survey-card active" id="step1">
                 <div class="step-label">Step 1 of 5</div>
                 
@@ -442,66 +381,52 @@
                     🛡️ Ed-surance is the only plan that bridges this gap, providing financial safety for private candidates facing the 13% baseline absence rate.
                 </div>
 
-                <!-- Instant Transition Button -->
                 <button type="button" class="card-btn" onclick="goToStep(2)">
-                    <div class="card-btn-indicator">✓</div>
-                    <div class="card-btn-text">
-                        <span class="card-btn-title">I understand my unique risks</span>
-                        <span class="card-btn-subtitle">Tap here to view the eligibility rules.</span>
-                    </div>
+                    <span class="card-btn-title">I understand my unique risks</span>
+                    <span class="card-btn-subtitle">Tap here to view the eligibility rules.</span>
                 </button>
             </div>
 
-            <!-- STEP 2: Exclusion Clauses -->
+            <!-- STEP 2 -->
             <div class="survey-card" id="step2">
                 <div class="step-label">Step 2 of 5</div>
                 <h2>2. When We Cannot Pay</h2>
                 <p>To keep plans fair and cheap for all honest students, claims are not payable if:</p>
                 
                 <div class="rule-list">
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>Your mock exam result is below Level 2.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You have low attendance in school days or tutoring classes.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You score Level 5 or higher in the real exam.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You fail to provide valid official proof documents.</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You break official exam rules (e.g., cheating).</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You miss an exam without an emergency (feeling unprepared does not count).</span></div>
-                    <div class="rule-row"><span class="rule-bullet">•</span><span>You are late without an official transit delay slip.</span></div>
+                    <div class="rule-row"><strong>•</strong> Your mock exam result is below Level 2.</div>
+                    <div class="rule-row"><strong>•</strong> You have low attendance in school days or tutoring classes.</div>
+                    <div class="rule-row"><strong>•</strong> You score Level 5 or higher in the real exam.</div>
+                    <div class="rule-row"><strong>•</strong> You fail to provide valid official proof documents.</div>
+                    <div class="rule-row"><strong>•</strong> You break official exam rules (e.g., cheating).</div>
+                    <div class="rule-row"><strong>•</strong> You miss an exam without an emergency (feeling unprepared does not count).</div>
+                    <div class="rule-row"><strong>•</strong> You are late without an official transit delay slip.</div>
                 </div>
 
-                <!-- Instant Transition Button -->
                 <button type="button" class="card-btn" onclick="goToStep(3)">
-                    <div class="card-btn-indicator">✓</div>
-                    <div class="card-btn-text">
-                        <span class="card-btn-title">I accept these exclusion terms</span>
-                        <span class="card-btn-subtitle">Tap here to choose your plan.</span>
-                    </div>
+                    <span class="card-btn-title">I accept these exclusion terms</span>
+                    <span class="card-btn-subtitle">Tap here to choose your plan.</span>
                 </button>
             </div>
 
-            <!-- STEP 3: Plan Tier Selection -->
+            <!-- STEP 3 -->
             <div class="survey-card" id="step3">
                 <div class="step-label">Step 3 of 5</div>
                 <h2>3. Choose Your Plan</h2>
                 <p>Select your protection level:</p>
                 
-                <button type="button" class="card-btn" onclick="selectPlanAndAdvance('Basic')">
-                    <div class="card-btn-indicator">1</div>
-                    <div class="card-btn-text">
-                        <span class="card-btn-title">Tier 1: Basic Plan — \$65</span>
-                        <span class="card-btn-subtitle">Covers Basic HKDSE Exam Fees (Max payout: \$3,000)</span>
-                    </div>
+                <button type="button" class="card-btn" onclick="selectPlan('Basic')">
+                    <span class="card-btn-title">Tier 1: Basic Plan — $65</span>
+                    <span class="card-btn-subtitle">Covers Basic HKDSE Exam Fees (Max payout: $3,000)</span>
                 </button>
 
-                <button type="button" class="card-btn" onclick="selectPlanAndAdvance('Premium')">
-                    <div class="card-btn-indicator">2</div>
-                    <div class="card-btn-text">
-                        <span class="card-btn-title">Tier 2: Premium Partner Plan — \$300</span>
-                        <span class="card-btn-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: \$18,000)</span>
-                    </div>
+                <button type="button" class="card-btn" onclick="selectPlan('Premium')">
+                    <span class="card-btn-title">Tier 2: Premium Partner Plan — $300</span>
+                    <span class="card-btn-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: $18,000)</span>
                 </button>
             </div>
 
-            <!-- STEP 4: Realistic Exam Details -->
+            <!-- STEP 4 -->
             <div class="survey-card" id="step4">
                 <div class="step-label">Step 4 of 5</div>
                 <h2>4. Your HKDSE Details</h2>
@@ -518,28 +443,232 @@
                 <div class="input-group">
                     <label>Select Covered Subjects (Scroll to choose all that apply)</label>
                     <div class="subject-scroll-area">
-                        <!-- Core Subjects -->
-                        <div class="subject-category-title">Core Subjects</div>
+                        <div class="subject-category">Core Subjects</div>
                         <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese Language"> Chinese Language</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="English Language"> English Language</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics (Compulsory)"> Mathematics (Compulsory)</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Citizenship & Social Development"> Citizenship & Social Dev.</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M1)"> Math Extended (M1)</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M2)"> Math Extended (M2)</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Chinese Language"> Chinese Language</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="English Language"> English Language</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Mathematics (Compulsory)"> Mathematics</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Citizenship & Social Development"> CS Dev.</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M1)"> Math M1</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M2)"> Math M2</label>
                         </div>
 
-                        <!-- Sciences -->
-                        <div class="subject-category-title">Sciences</div>
+                        <div class="subject-category">Sciences</div>
                         <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Biology"> Biology</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chemistry"> Chemistry</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physics"> Physics</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Biology"> Biology</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Chemistry"> Chemistry</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Physics"> Physics</label>
                         </div>
 
-                        <!-- Humanities & Social Sciences -->
-                        <div class="subject-category-title">Humanities & Social Sciences</div>
+                        <div class="subject-category">Humanities</div>
                         <div class="subject-grid">
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese History"> Chinese History</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="History"> History</label>
-                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Economic
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Chinese History"> Chinese History</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="History"> History</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Economics"> Economics</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Geography"> Geography</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Tourism & Hospitality Studies"> Tourism</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Ethics & Religious Studies"> Ethics</label>
+                        </div>
+
+                        <div class="subject-category">Business & Tech</div>
+                        <div class="subject-grid">
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="BAFS"> BAFS</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="ICT"> ICT</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Design & Applied Technology"> Design</label>
+                            <label class="sub-box"><input type="checkbox" name="subjectChoice" value="Technology & Living"> Living</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="generator-container">
+                    <label style="font-weight: bold; font-size: 0.9rem;">DSE Candidate Number</label>
+                    <div class="candidate-num-display" id="candidateNumBox">---------</div>
+                    <button type="button" class="btn-action" onclick="generateDseNumber()">Write my number</button>
+                </div>
+            </div>
+
+            <!-- STEP 5 -->
+            <div class="survey-card" id="step5">
+                <div class="step-label">Step 5 of 5</div>
+                <h2>5. Generate Document</h2>
+                <p>We do not collect any personal data or email addresses. Tap below to build your agreement immediately.</p>
+                
+                <button type="button" class="card-btn" onclick="goToStep(6)">
+                    <span class="card-btn-title">Create my E-Policy Contract</span>
+                    <span class="card-btn-subtitle">Builds the certificate instantly on your screen.</span>
+                </button>
+            </div>
+        </form>
+
+        <!-- THE GENERATED LOCAL E-POLICY -->
+        <section id="policyDisplay" class="policy-output">
+            <header class="cert-header">
+                <h1 class="cert-title">Ed-surance Policy</h1>
+                <p>Private Candidate Protection Agreement</p>
+            </header>
+
+            <table class="meta-table">
+                <tr>
+                    <td>
+                        <span class="meta-label">Selected Tier</span>
+                        <strong id="outPlan">-</strong>
+                    </td>
+                    <td>
+                        <span class="meta-label">Premium Charged</span>
+                        <strong id="outFee">-</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-label">Max Claim Ceiling</span>
+                        <strong id="outCap">-</strong>
+                    </td>
+                    <td>
+                        <span class="meta-label">Candidate Number</span>
+                        <strong id="outCandNum" style="font-family: monospace; letter-spacing: 0.05em;">-</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-label">DSE Exam Year</span>
+                        <strong id="outYear">-</strong>
+                    </td>
+                    <td>
+                        <span class="meta-label">Covered Subjects</span>
+                        <strong id="outSubjects">-</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <span class="meta-label">Active Since</span>
+                        <span id="outDate">-</span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="cert-clause">
+                <h3>1. Covered Benefit Details</h3>
+                <p id="outDesc">-</p>
+            </div>
+
+            <div class="cert-clause">
+                <h3>2. Binding Exclusion Rules</h3>
+                <ul>
+                    <li>Mock results below Level 2 forfeit claims.</li>
+                    <li>Low attendance records cancel plan eligibility.</li>
+                    <li>Achieving Level 5 or higher places performance outside claim bounds.</li>
+                    <li>Missing official proof or hospital documentation voids claims.</li>
+                    <li>Direct violation of HKEAA exam rules invalidates coverage.</li>
+                    <li>Voluntary absence without verifiable medical records is excluded.</li>
+                    <li>Lateness without official transit delay logs is ineligible.</li>
+                </ul>
+            </div>
+
+            <div class="cert-actions">
+                <button type="button" class="btn-action" onclick="restartSurvey()">Start Over</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let step = 1;
+        const total = 5;
+        let generatedCandNum = "";
+        let selectedPlanTier = "Basic";
+
+        function refreshProgress() {
+            document.getElementById('progressFill').style.width = ((step / total) * 100) + '%';
+        }
+
+        function goToStep(target) {
+            if (target === 6) {
+                renderPolicy();
+                return;
+            }
+            document.getElementById('step' + step).classList.remove('active');
+            step = target;
+            document.getElementById('step' + step).classList.add('active');
+            refreshProgress();
+        }
+
+        function selectPlan(tier) {
+            selectedPlanTier = tier;
+            goToStep(4);
+        }
+
+        function generateDseNumber() {
+            const year = document.getElementById('examYear').value;
+            const subjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
+
+            if (subjects.length === 0) {
+                alert("Please select at least one covered subject.");
+                return;
+            }
+
+            const prefix = year.substring(2);
+            let serializedDigits = "";
+            for (let i = 0; i < 7; i++) {
+                serializedDigits += Math.floor(Math.random() * 10);
+            }
+
+            generatedCandNum = prefix + serializedDigits;
+            document.getElementById('candidateNumBox').textContent = generatedCandNum;
+
+            // Instantly advances to Step 5 the moment the number is generated
+            goToStep(5);
+        }
+
+        function renderPolicy() {
+            const selectedYear = document.getElementById('examYear').value;
+            const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjectChoice"]:checked')).map(el => el.value).join(', ');
+
+            const outPlan = document.getElementById('outPlan');
+            const outFee = document.getElementById('outFee');
+            const outCap = document.getElementById('outCap');
+            const outDesc = document.getElementById('outDesc');
+            
+            const outCandNum = document.getElementById('outCandNum');
+            const outYear = document.getElementById('outYear');
+            const outSubjects = document.getElementById('outSubjects');
+
+            outCandNum.textContent = generatedCandNum;
+            outYear.textContent = selectedYear;
+            outSubjects.textContent = selectedSubjects;
+
+            if (selectedPlanTier === 'Basic') {
+                outPlan.textContent = 'Tier 1: Basic Protection';
+                outFee.textContent = '$65 HKD';
+                outCap.textContent = '$3,000 HKD Max';
+                outDesc.textContent = 'Covers basic HKDSE registration examination fees up to $3,000 HKD paid directly to the examination authority.';
+            } else {
+                outPlan.textContent = 'Tier 2: Premium Partner Plan';
+                outFee.textContent = '$300 HKD';
+                outCap.textContent = '$18,000 HKD Max';
+                outDesc.textContent = 'Covers official basic HKDSE examination fees plus 37.5% of verified tutorial/retake fees (up to a combined maximum payout of $18,000 HKD) coordinated via partner tutoring centres.';
+            }
+
+            document.getElementById('outDate').textContent = new Date().toLocaleString();
+
+            document.getElementById('brandHeader').style.display = 'none';
+            document.getElementById('progressTrack').style.display = 'none';
+            document.getElementById('policySurvey').style.display = 'none';
+            document.getElementById('policyDisplay').classList.add('active');
+        }
+
+        function restartSurvey() {
+            document.getElementById('policySurvey').reset();
+            generatedCandNum = "";
+            document.getElementById('candidateNumBox').textContent = "---------";
+            document.getElementById('policyDisplay').classList.remove('active');
+            document.getElementById('brandHeader').style.display = 'block';
+            document.getElementById('progressTrack').style.display = 'block';
+            document.getElementById('policySurvey').style.display = 'block';
+
+            document.getElementById('step' + step).classList.remove('active');
+            step = 1;
+            document.getElementById('step1').classList.add('active');
+            refreshProgress();
+        }
+    </script>
+</body>
+</html>
