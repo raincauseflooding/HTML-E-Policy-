@@ -421,7 +421,7 @@
                 </button>
 
                 <button type="button" class="card-btn" onclick="selectPlan('Premium')">
-                    <span class="card-btn-title">Tier 2: Premium Partner Plan — $300</span>
+                    <span class="card-btn-title">Tier 2: Premium Partner Plan — $210</span>
                     <span class="card-btn-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: $18,000)</span>
                 </button>
             </div>
