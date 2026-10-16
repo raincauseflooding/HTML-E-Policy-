@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Ed-surance - Private Candidate Exam Protection</title>
     <style>
-        /* Base Wildcard Reset */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -161,42 +160,52 @@
             font-weight: bold;
         }
 
-        .touch-option {
+        /* Native Clickable Action Cards */
+        .card-btn {
             display: flex;
             align-items: center;
-            min-height: 52px;
-            padding: 0.8rem;
+            width: 100%;
+            min-height: 60px;
+            padding: 0.8rem 1rem;
             border: 2px solid #000000;
             margin-top: 0.8rem;
+            background-color: #ffffff;
             cursor: pointer;
+            text-align: left;
             touch-action: manipulation;
+            transition: background 0.15s ease;
         }
 
-        .touch-option:active {
+        .card-btn:active {
             background-color: #eeeeee;
         }
 
-        .touch-option input {
+        .card-btn-indicator {
             width: 22px;
             height: 22px;
+            border: 2px solid #000000;
             margin-right: 0.8rem;
-            accent-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            cursor: pointer;
+            font-weight: 900;
+            font-size: 14px;
         }
 
-        .touch-text {
+        .card-btn-text {
             display: flex;
             flex-direction: column;
             gap: 0.15rem;
         }
 
-        .touch-title {
+        .card-btn-title {
             font-size: 0.95rem;
             font-weight: 700;
+            color: #000000;
         }
 
-        .touch-subtitle {
+        .card-btn-subtitle {
             font-size: 0.8rem;
             color: #444444;
         }
@@ -256,16 +265,17 @@
         .subject-label {
             display: flex;
             align-items: center;
-            padding: 0.5rem;
+            padding: 0.6rem;
             border: 1px solid #000000;
             background-color: #ffffff;
             cursor: pointer;
             font-size: 0.85rem;
             font-weight: 600;
+            user-select: none;
         }
 
         .subject-label input {
-            margin-right: 0.5rem;
+            margin-right: 0.6rem;
             width: 18px;
             height: 18px;
             accent-color: #000000;
@@ -288,24 +298,19 @@
             font-family: monospace;
         }
 
-        button {
+        .action-button {
             width: 100%;
             min-height: 48px;
             font-size: 0.95rem;
             font-weight: 700;
             border: 2px solid #000000;
-            background-color: #ffffff;
-            color: #000000;
+            background-color: #000000;
+            color: #ffffff;
             cursor: pointer;
             touch-action: manipulation;
         }
 
-        .btn-action {
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        .btn-action:active {
+        .action-button:active {
             background-color: #222222;
         }
 
@@ -415,7 +420,7 @@
             <div class="progress-fill" id="progressFill"></div>
         </div>
 
-        <form id="policySurvey">
+        <form id="policySurvey" onsubmit="return false;">
             <!-- STEP 1: Context Setup -->
             <div class="survey-card active" id="step1">
                 <div class="step-label">Step 1 of 5</div>
@@ -437,13 +442,14 @@
                     🛡️ Ed-surance is the only plan that bridges this gap, providing financial safety for private candidates facing the 13% baseline absence rate.
                 </div>
 
-                <label class="touch-option">
-                    <input type="checkbox" id="chk1" onchange="instantAdvance(1)">
-                    <span class="touch-text">
-                        <span class="touch-title">I understand my unique risks</span>
-                        <span class="touch-subtitle">Tap here to view the eligibility rules.</span>
-                    </span>
-                </label>
+                <!-- Instant Transition Button -->
+                <button type="button" class="card-btn" onclick="goToStep(2)">
+                    <div class="card-btn-indicator">✓</div>
+                    <div class="card-btn-text">
+                        <span class="card-btn-title">I understand my unique risks</span>
+                        <span class="card-btn-subtitle">Tap here to view the eligibility rules.</span>
+                    </div>
+                </button>
             </div>
 
             <!-- STEP 2: Exclusion Clauses -->
@@ -462,14 +468,78 @@
                     <div class="rule-row"><span class="rule-bullet">•</span><span>You are late without an official transit delay slip.</span></div>
                 </div>
 
-                <label class="touch-option">
-                    <input type="checkbox" id="chk2" onchange="instantAdvance(2)">
-                    <span class="touch-text">
-                        <span class="touch-title">I accept these exclusion terms</span>
-                        <span class="touch-subtitle">Tap here to choose your plan.</span>
-                    </span>
-                </label>
+                <!-- Instant Transition Button -->
+                <button type="button" class="card-btn" onclick="goToStep(3)">
+                    <div class="card-btn-indicator">✓</div>
+                    <div class="card-btn-text">
+                        <span class="card-btn-title">I accept these exclusion terms</span>
+                        <span class="card-btn-subtitle">Tap here to choose your plan.</span>
+                    </div>
+                </button>
             </div>
 
             <!-- STEP 3: Plan Tier Selection -->
-  
+            <div class="survey-card" id="step3">
+                <div class="step-label">Step 3 of 5</div>
+                <h2>3. Choose Your Plan</h2>
+                <p>Select your protection level:</p>
+                
+                <button type="button" class="card-btn" onclick="selectPlanAndAdvance('Basic')">
+                    <div class="card-btn-indicator">1</div>
+                    <div class="card-btn-text">
+                        <span class="card-btn-title">Tier 1: Basic Plan — \$65</span>
+                        <span class="card-btn-subtitle">Covers Basic HKDSE Exam Fees (Max payout: \$3,000)</span>
+                    </div>
+                </button>
+
+                <button type="button" class="card-btn" onclick="selectPlanAndAdvance('Premium')">
+                    <div class="card-btn-indicator">2</div>
+                    <div class="card-btn-text">
+                        <span class="card-btn-title">Tier 2: Premium Partner Plan — \$300</span>
+                        <span class="card-btn-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: \$18,000)</span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- STEP 4: Realistic Exam Details -->
+            <div class="survey-card" id="step4">
+                <div class="step-label">Step 4 of 5</div>
+                <h2>4. Your HKDSE Details</h2>
+                <p>Select your exam year, check all covered subjects, then write your candidate number.</p>
+                
+                <div class="input-group">
+                    <label for="examYear">Select Exam Year</label>
+                    <select id="examYear">
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Select Covered Subjects (Scroll to choose all that apply)</label>
+                    <div class="subject-scroll-area">
+                        <!-- Core Subjects -->
+                        <div class="subject-category-title">Core Subjects</div>
+                        <div class="subject-grid">
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese Language"> Chinese Language</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="English Language"> English Language</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics (Compulsory)"> Mathematics (Compulsory)</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Citizenship & Social Development"> Citizenship & Social Dev.</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M1)"> Math Extended (M1)</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Mathematics Extended (M2)"> Math Extended (M2)</label>
+                        </div>
+
+                        <!-- Sciences -->
+                        <div class="subject-category-title">Sciences</div>
+                        <div class="subject-grid">
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Biology"> Biology</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chemistry"> Chemistry</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Physics"> Physics</label>
+                        </div>
+
+                        <!-- Humanities & Social Sciences -->
+                        <div class="subject-category-title">Humanities & Social Sciences</div>
+                        <div class="subject-grid">
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Chinese History"> Chinese History</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="History"> History</label>
+                            <label class="subject-label"><input type="checkbox" name="subjectChoice" value="Economic
