@@ -11,6 +11,22 @@
             padding: 0;
             -webkit-tap-highlight-color: transparent;
         }
+/* Disable and hide all hover links, anchor icons, and auto-generated header links */
+h1 a, h2 a, h3 a, h4 a, 
+.anchor, .header-link, .markdown-anchor, 
+[id] > a, [class*="anchor"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    text-decoration: none !important;
+}
+
+/* Ensure headings do not show pointers or look clickable */
+h1, h2, h3, h4 {
+    cursor: default !important;
+    user-select: text !important;
+}
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
