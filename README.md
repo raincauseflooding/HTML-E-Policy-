@@ -485,29 +485,7 @@ h1 a, h2 a, h3 a, .anchor, .header-link {
                         </div>
                     </div>
                 </div>
-                function generateDseNumber() {
-    const examYearValue = document.getElementById('examYear').value;
-    const selectedSubjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
-
-    if (selectedSubjects.length === 0) {
-        alert("Please select at least one covered subject.");
-        return;
-    }
-
-    const prefix = examYearValue.substring(2);
-    let serializedDigits = "";
-    for (let i = 0; i < 7; i++) {
-        serializedDigits += Math.floor(Math.random() * 10);
-    }
-
-    generatedCandNum = prefix + serializedDigits;
-    document.getElementById('candidateNumBox').textContent = generatedCandNum;
-
-    // Instantly advances to Step 5 the moment the number is generated
-    goToStep(5);
-}
-
-
+                
                 <div class="generator-container">
                     <label style="font-weight: bold; font-size: 0.9rem;">DSE Candidate Number</label>
                     <div class="candidate-num-display" id="candidateNumBox">---------</div>
