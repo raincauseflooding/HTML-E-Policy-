@@ -985,7 +985,7 @@
 
                 <h2>5. Generate Document</h2>
 
-                <p>Tap below to build your agreement immediately.</p>
+                <p>Tap below to build your <strong style="text-decoration: underline;">Class of <span id="previewYear">2027</span></strong> agreement immediately.</p>
 
                 
 
