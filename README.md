@@ -427,7 +427,7 @@ h1 a, h2 a, h3 a, .anchor, .header-link {
                 </button>
 
                 <button type="button" class="card-btn" onclick="selectPlan('Premium')">
-                    <span class="card-btn-title">Tier 2: Premium Partner Plan — $300</span>
+                    <span class="card-btn-title">Tier 2: Premium Partner Plan — $210</span>
                     <span class="card-btn-subtitle">Covers Basic HKDSE Fee + 37.5% Tutorial Fees (Max payout: $18,000)</span>
                 </button>
             </div>
@@ -485,6 +485,28 @@ h1 a, h2 a, h3 a, .anchor, .header-link {
                         </div>
                     </div>
                 </div>
+                function generateDseNumber() {
+    const examYearValue = document.getElementById('examYear').value;
+    const selectedSubjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
+
+    if (selectedSubjects.length === 0) {
+        alert("Please select at least one covered subject.");
+        return;
+    }
+
+    const prefix = examYearValue.substring(2);
+    let serializedDigits = "";
+    for (let i = 0; i < 7; i++) {
+        serializedDigits += Math.floor(Math.random() * 10);
+    }
+
+    generatedCandNum = prefix + serializedDigits;
+    document.getElementById('candidateNumBox').textContent = generatedCandNum;
+
+    // Instantly advances to Step 5 the moment the number is generated
+    goToStep(5);
+}
+
 
                 <div class="generator-container">
                     <label style="font-weight: bold; font-size: 0.9rem;">DSE Candidate Number</label>
@@ -613,9 +635,25 @@ h1 a, h2 a, h3 a, .anchor, .header-link {
 
             const prefix = year.substring(2);
             let serializedDigits = "";
-            for (let i = 0; i < 7; i++) {
-                serializedDigits += Math.floor(Math.random() * 10);
-            }
+            function generateDseNumber() {
+    const year = document.getElementById('examYear').value;
+    const subjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
+
+    if (subjects.length === 0) {
+        alert("Please select at least one covered subject.");
+        return;
+    }
+
+    // A simpler, more "human-looking" way to generate a 9-digit mock string
+    const prefix = year.substring(2);
+    const randomNum = Math.floor(1000000 + Math.random() * 9000000); 
+    
+    generatedCandNum = prefix + randomNum;
+    document.getElementById('candidateNumBox').textContent = generatedCandNum;
+
+    goToStep(5);
+}
+
 
             generatedCandNum = prefix + serializedDigits;
             document.getElementById('candidateNumBox').textContent = generatedCandNum;
@@ -648,7 +686,7 @@ h1 a, h2 a, h3 a, .anchor, .header-link {
                 outDesc.textContent = 'Covers basic HKDSE registration examination fees up to $3,000 HKD paid directly to the examination authority.';
             } else {
                 outPlan.textContent = 'Tier 2: Premium Partner Plan';
-                outFee.textContent = '$300 HKD';
+                outFee.textContent = '$210 HKD';
                 outCap.textContent = '$18,000 HKD Max';
                 outDesc.textContent = 'Covers official basic HKDSE examination fees plus 37.5% of verified tutorial/retake fees (up to a combined maximum payout of $18,000 HKD) coordinated via partner tutoring centres.';
             }
