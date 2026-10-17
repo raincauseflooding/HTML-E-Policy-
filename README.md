@@ -1115,7 +1115,7 @@
 
                     <li>Low attendance records cancel plan eligibility.</li>
 
-                    <li>Achieving Level 5 or higher places performance outside claim bounds.</li>
+                    
 
                     <li>Missing official proof or hospital documentation voids claims.</li>
 
