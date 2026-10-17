@@ -11,6 +11,12 @@
             padding: 0;
             -webkit-tap-highlight-color: transparent;
         }
+        /* Permanently hide header link anchor symbols */
+h1 a, h2 a, h3 a, .anchor, .header-link {
+    display: none !important;
+    pointer-events: none !important;
+}
+
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -365,7 +371,7 @@
                 <div class="step-label">Step 1 of 5</div>
                 
                 <div class="formal-warning-box">
-                    <div class="formal-warning-title">📢 Important Notice for Parents & Students:</div>
+                    <div class="formal-warning-title"> Important Notice for Parents & Students:</div>
                     If you are worried about high costs, lost study momentum, or missing the examination due to sudden emergencies, you can buy our protection plan to secure your peace of mind.
                 </div>
 
@@ -373,12 +379,12 @@
                 <p>Global exams like IELTS or IGCSE offer refunds if you miss an exam. In contrast, the HKDSE only offers "assessed grades" to day-school students.</p>
                 
                 <div class="comparison-box">
-                    <div class="comparison-title">❌ The Private Candidate Problem:</div>
+                    <div class="comparison-title"> The Private Candidate Problem:</div>
                     If you are a private, mainland, or international student, <strong>you cannot get an assessed grade</strong> if you miss the DSE. You get an automatic "Absent" (0 score) and lose your exam fee plus a whole year of study.
                 </div>
 
                 <div class="highlight-alert">
-                    🛡️ Ed-surance is the only plan that bridges this gap, providing financial safety for private candidates facing the 13% baseline absence rate.
+                     Ed-surance is the only plan that bridges this gap, providing financial safety for private candidates facing the 13% baseline absence rate.
                 </div>
 
                 <button type="button" class="card-btn" onclick="goToStep(2)">
