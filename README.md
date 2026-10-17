@@ -603,44 +603,35 @@ h1 a, h2 a, h3 a, .anchor, .header-link {
         }
 
         function generateDseNumber() {
-    // 1. Get the exam year selected in Step 4
     const examYearValue = document.getElementById('examYear').value;
-    const selectedSubjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
 
-    // 2. Validate that they checked at least one subject first
-    if (selectedSubjects.length === 0) {
-        alert("Please select at least one covered subject.");
-        return;
-    }
+            const selectedSubjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
 
-    // 3. Extract the 2-digit prefix (e.g. "27" from "2027")
-    const prefix = examYearValue.substring(2);
-    
-    // 4. Generate a clean 7-digit random identifier
-    const serialSuffix = Math.floor(1000000 + Math.random() * 9000000);
+  
 
-    // 5. Combine them to make a perfect 9-digit number
-    generatedCandNum = prefix + serialSuffix;
-    
-    // 6. Write the generated number to the box on your screen
-    document.getElementById('candidateNumBox').textContent = generatedCandNum;
+            if (selectedSubjects.length === 0) {
 
-    // 7. Instantly slide to Step 5!
-    goToStep(5);
-}
+                alert("Please select at least one covered subject.");
 
+                return;
 
-    if (subjects.length === 0) {
-        alert("Please select at least one covered subject.");
-        return;
-    }
+            }
 
-    // A simpler, more "human-looking" way to generate a 9-digit mock string
-    const prefix = year.substring(2);
-    const randomNum = Math.floor(1000000 + Math.random() * 9000000); 
-    
-    generatedCandNum = prefix + randomNum;
-    document.getElementById('candidateNumBox').textContent = generatedCandNum;
+  
+
+            const prefix = examYearValue.substring(2);
+            
+            // Fixed clean random math formula (no backslashes)
+
+            const serialSuffix = Math.floor(1000000 + Math.random() * 9000000);
+
+  
+
+            generatedCandNum = prefix + serialSuffix;
+
+            document.getElementById('candidateNumBox').textContent = generatedCandNum;
+
+            // Instantly advances to Step 5
 
     goToStep(5);
 }
