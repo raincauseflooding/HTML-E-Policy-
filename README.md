@@ -603,19 +603,32 @@ h1 a, h2 a, h3 a, .anchor, .header-link {
         }
 
         function generateDseNumber() {
-            const year = document.getElementById('examYear').value;
-            const subjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
+    // 1. Get the exam year selected in Step 4
+    const examYearValue = document.getElementById('examYear').value;
+    const selectedSubjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
 
-            if (subjects.length === 0) {
-                alert("Please select at least one covered subject.");
-                return;
-            }
+    // 2. Validate that they checked at least one subject first
+    if (selectedSubjects.length === 0) {
+        alert("Please select at least one covered subject.");
+        return;
+    }
 
-            const prefix = year.substring(2);
-            let serializedDigits = "";
-            function generateDseNumber() {
-    const year = document.getElementById('examYear').value;
-    const subjects = document.querySelectorAll('input[name="subjectChoice"]:checked');
+    // 3. Extract the 2-digit prefix (e.g. "27" from "2027")
+    const prefix = examYearValue.substring(2);
+    
+    // 4. Generate a clean 7-digit random identifier
+    const serialSuffix = Math.floor(1000000 + Math.random() * 9000000);
+
+    // 5. Combine them to make a perfect 9-digit number
+    generatedCandNum = prefix + serialSuffix;
+    
+    // 6. Write the generated number to the box on your screen
+    document.getElementById('candidateNumBox').textContent = generatedCandNum;
+
+    // 7. Instantly slide to Step 5!
+    goToStep(5);
+}
+
 
     if (subjects.length === 0) {
         alert("Please select at least one covered subject.");
