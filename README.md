@@ -985,7 +985,7 @@
 
                 <h2>5. Generate Document</h2>
 
-                <p>We do not collect any personal data or email addresses. Tap below to build your agreement immediately.</p>
+                <p>Tap below to build your agreement immediately.</p>
 
                 
 
