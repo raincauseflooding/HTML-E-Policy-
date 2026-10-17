@@ -795,11 +795,11 @@
 
                     <div class="rule-row"><strong>•</strong> You have low attendance in school days or tutoring classes.</div>
 
-                    <div class="rule-row"><strong>•</strong> You score Level 5 or higher in the real exam.</div>
+
 
                     <div class="rule-row"><strong>•</strong> You fail to provide valid official proof documents.</div>
 
-                    <div class="rule-row"><strong>•</strong> You break official exam rules (e.g., cheating).</div>
+                    
 
                     <div class="rule-row"><strong>•</strong> You miss an exam without an emergency (feeling unprepared does not count).</div>
 
